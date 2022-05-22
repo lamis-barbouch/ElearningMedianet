@@ -1,0 +1,4 @@
+.valid
+{ border: 1px solid #088A08; background-color: #CEF6CE; }
+.invalid
+{ border: 1px solid #8A0808; background-color: #F6CECE; }

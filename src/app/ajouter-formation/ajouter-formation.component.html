@@ -1,0 +1,108 @@
+<div class="row">
+
+    <!-- Content Column -->
+
+    <div >
+
+        <!-- Forum -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Ajouter une formation</h6>
+            </div>
+                  
+                        <form #f="ngForm">
+                                  <!-- Nested Row within Card Body -->
+                                          <div class="p-5">
+                                              
+                                              
+                                              <div>
+                                                
+
+
+                                                <form (ngSubmit)="onSubmit()">
+
+<div class="row">
+                                                  <div  class="form-group" class="col">
+                                                    <label >Titre</label>
+                                                     <input name="titreFormation"  type="text"
+                                                      class="form-control" id="titreFormation" required
+                                                       [(ngModel)]="formation.titreFormation" #titreFormation="ngModel" required >
+                                                  </div>
+                                               
+                                              <br>
+                                              <div  class="form-group" class="col">
+                                                <label >Date</label>
+                                                 <input name="dateFormation"  type="date"
+                                                  class="form-control" id="dateFormation" required
+                                                   [(ngModel)]="formation.dateFormation" #dateFormation="ngModel" required >
+                                              </div>
+                                            </div>
+                                            <div class="row">
+                                                <div  class="form-group" class="col">
+                                                  <label >Nombre De Place</label>
+                                                   <input name="nbDePlace" type="number"
+                                                    class="form-control" id="nbDePlace" required
+                                                     [(ngModel)]="formation.nbDePlace" #nbDePlace="ngModel" required >
+                                                </div>
+    
+                                                <br>
+                                                <div  class="form-group" class="col">
+                                                  <label >Prix</label>
+                                                   <input name="prixFormation" type="number"
+                                                    class="form-control" id="prixFormation" required
+                                                     [(ngModel)]="formation.prixFormation" #prixFormation="ngModel" required >
+                                                </div>
+    </div>
+                                            <br>
+                                              <div  class="form-group">
+                                                <label >Description </label>
+                                                 <input name="descriptionFormation"  type="text"
+                                                  class="form-control" id="descriptionFormation" required
+                                                   [(ngModel)]="formation.descriptionFormation" #descriptionFormation="ngModel" >
+                                              </div>
+                                          
+                                            <br>
+                                            
+                                            <div  class="form-group">
+                                                <label >Description detaillée</label>
+                                                 <textarea name="descriptiondetailleFormation" type="text"
+                                                  class="form-control" id="descriptiondetailleFormation" required
+                                                   [(ngModel)]="formation.descriptiondetailleFormation" #descriptiondetailleFormation="ngModel" required ></textarea>
+                                              </div>
+
+                                              
+                                            
+
+                                            
+<br>
+                                           
+                    <br>
+                                            
+                                         
+                                            
+                          
+                                      
+                         <br>
+                         
+                         <br>
+                    
+                                                    <div>
+                                                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                     &nbsp; &nbsp; &nbsp; &nbsp; 
+                                                      <button type="submit" class="btn btn-success" [disabled]="!f.valid">Enregistrer</button>                                      </div>
+                                                  </form>
+
+                                                </div>
+                                               
+                    </div>
+                    
+                    
+                    
+                    </form>
+        </div>
+
+        <!-- Approach -->
+       
+
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="container" *ngIf="formation">
+    <div class="heading-section">
+        <h2>{{formation.titreFormation}}</h2>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <img src="../../assets/img/banner-home1.png">
+        </div>
+        <div class="col-md-6">
+            <div class="product-dtl">
+                <div class="product-info">
+                    <div class="product-price-discount"><h2>Prix</h2></div>
+                    <div class="product-price-discount"><span>{{formation.prixFormation}} DT</span></div>
+                </div>
+                <p>{{formation.descriptionFormation}}</p>
+                
+                <br>
+                <div class="product-count">
+                    
+                    
+            </div>
+            
+                    
+        
+
+        </div>
+    </div>
+    <div class="product-info-tabs">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Description</a>
+              </li>
+              
+        </ul>
+        <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+                {{formation.descriptiondetailleFormation}}
+              </div>
+          
+        </div>
+    </div>
+</div>

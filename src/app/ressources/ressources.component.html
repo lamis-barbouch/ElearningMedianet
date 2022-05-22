@@ -1,0 +1,327 @@
+
+<head>
+    <link href="https://bootswatch.com/4/journal/bootstrap.css"> 
+    <style>
+     @import url("https://fonts.googleapis.com/css?family=Muli:400,700&display=swap");
+ 
+ body {
+ margin: 0;
+ height: calc(100vh - 8em);
+ font-family: "Muli", sans-serif;
+ background-color: #ffffff;
+ }
+ 
+ h1 {
+ text-align: center;
+ margin: 1.5em;
+ }
+ 
+ img {
+ width: 35%;
+ border-radius: 50%;
+ }
+ 
+ .container {
+ width: 100%;
+ overflow: hidden;
+ position: relative;
+ }
+ 
+ .items {
+ display: flex;
+ align-items: center;
+ width: 100%;
+ animation: carouselAnim 50s infinite alternate linear;
+ }
+ 
+ .entry {
+ display: flex;
+ align-items: center;
+ flex-direction: column;
+ position: relative;
+ width: 300px;
+ background: #fff;
+ margin: 1em;
+ padding: 0.5em;
+ border-radius: 10px;
+ box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.5);
+ }
+ 
+ @media only screen and (max-width: 768px) {
+ .items {
+   animation: carouselAnim 35s infinite alternate linear;
+ }
+ 
+ @keyframes carouselAnim {
+   from {
+     transform: translate(0, 0);
+   }
+   to {
+     transform: translate(calc(-100% + (2 * 300px)));
+   }
+ }
+ }
+ 
+ .entry p {
+ text-align: center;
+ padding: 1em;
+ }
+ 
+ .name {
+ font-weight: bold;
+ }
+ 
+ @keyframes carouselAnim {
+ from {
+   transform: translate(0, 0);
+ }
+ to {
+   transform: translate(calc(-100% + (5 * 300px)));
+ }
+ }
+ 
+ .container .faders {
+ width: 100%;
+ position: absolute;
+ height: 100%;
+ }
+ 
+ .faders .right,
+ .faders .left {
+ background: linear-gradient(
+   to right,
+   rgba(245, 245, 245, 1) 0%,
+   rgba(255, 255, 255, 0) 100%
+ );
+ width: 100%;
+ height: 100%;
+ position: absolute;
+ z-index: 200;
+ }
+ 
+ .right {
+ right: 0;
+ background: linear-gradient(
+   to left,
+   rgba(245, 245, 245, 1) 0%,
+   rgba(255, 255, 255, 0) 100%
+ );
+ }
+ 
+   </style>
+ </head>
+ 
+ <app-header-formateur></app-header-formateur>
+ <div class="container" style="margin-top: 20px;">
+     <div class="panel panel-default">
+       <div class="panel-heading">
+         <h4>Ajouter des cours</h4>
+       </div><br>
+       <div class="panel-body">        
+         <strong>Sélectionnez des fichiers sur votre ordinateur</strong>
+         <div *ngIf="fileStatus.status==='progress'">
+           <div class="progress">
+             <div [style.width.%]="fileStatus.percent" class="progress-bar progress-bar-animated bg-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                 {{ fileStatus.requestType }} {{ fileStatus.percent }} 
+               </div>
+           </div>
+         </div> <hr>
+   
+         <form enctype="multipart/form-data">
+           <fieldset>
+             <div class="form-group">
+               <div>
+                 <input type="file" (change)="onUploadFiles($event.target.files)" name="files" multiple class="form-control" />
+               </div>
+             </div>
+           </fieldset>
+         </form>
+         
+         <br>  
+ 
+         <div class="panel panel-primary">
+           <div class="panel-heading">
+             <h2> List</h2>
+           </div>
+           <div class="panel-body">
+             <table class="table table-striped">
+               <thead>
+                 <tr>
+                   <th>id</th>
+                   <th>filename</th>
+                   <th>Type</th>
+                   
+                 </tr>
+               </thead>
+               <tbody>
+                 <tr *ngFor="let file of files | async">
+                   <td>{{file.id}}</td>
+                   <td>{{file.fileName}}</td>
+                   <td>{{file.fileType}}</td>
+                   <td><a (click)="onDownloadFile(file.id)" class="list-group-item list-group-item-success" style="cursor: pointer;">
+                     {{ filename }}            
+                     <a class="alert-success float-right">Download</a>
+                   </a></td>
+                   
+                 </tr>
+ 
+               </tbody>
+             </table>
+           </div>
+ 
+       
+ <br>
+ 
+ <div >
+ <div class="container"  >
+   <div class="row" >
+     <div class="col-12" style="height: 100%; width: 100%;">
+        
+         <div class="tab-content" id="pills-tabContent"  *ngFor="let file of files | async">
+             <div class="tab-pane fade active show" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" style="height: 100%; width: 100%;">
+                 <div class="row" style="height: 100%; width: 100%;" >
+                     <div class="col-lg-4 col-sm-6" >
+                       <div *ngIf="file.fileType == 'image/jpeg'">
+                         <a class="member-item"(click)="onDownloadFile(file.id)"  style="cursor: pointer;">
+                           {{ filename }}            
+                        
+                             <div class="card mb-2 mb-md-5 py-3">
+                                 <div class="content">
+                                     <div class="row">
+                                         <div class="col-6 d-flex justify-content-center align-items-center">
+                                             <div class="icon-big text-warning text-center">
+                                               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-image" viewBox="0 0 16 16">
+                                                 <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                                                 <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z"/>
+                                               </svg>
+                                             </div>
+                                         </div>
+                                         <div class="col-6 d-flex justify-content-center align-items-center">
+                                             <div class="numbers">
+                                                 <p>{{file.fileName}}</p>
+                                                
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                         </a>
+                       </div>
+                       </div>
+                    
+                 
+                 </div>
+             </div>
+             
+             
+         </div>
+         <div class="tab-content" id="pills-tabContent"  *ngFor="let file of files | async">
+           <div class="tab-pane fade active show" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+               <div class="row" >
+                   <div class="col-lg-4 col-sm-6" >
+                     <div *ngIf="file.fileType == 'application/vnd.openxmlformats-officedocument.presentationml.presentation'">
+                       <a class="member-item"(click)="onDownloadFile(file.id)"  style="cursor: pointer;">
+                         {{ filename }}            
+                      
+                           <div class="card mb-2 mb-md-5 py-3">
+                               <div class="content">
+                                   <div class="row">
+                                       <div class="col-6 d-flex justify-content-center align-items-center">
+                                           <div class="icon-big text-warning text-center">
+                                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" color="red" class="bi bi-file-slides" viewBox="0 0 16 16">
+                                               <path d="M5 4a.5.5 0 0 0-.496.438l-.5 4A.5.5 0 0 0 4.5 9h3v2.016c-.863.055-1.5.251-1.5.484 0 .276.895.5 2 .5s2-.224 2-.5c0-.233-.637-.429-1.5-.484V9h3a.5.5 0 0 0 .496-.562l-.5-4A.5.5 0 0 0 11 4H5zm2 3.78V5.22c0-.096.106-.156.19-.106l2.13 1.279a.125.125 0 0 1 0 .214l-2.13 1.28A.125.125 0 0 1 7 7.778z"/>
+                                               <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
+                                             </svg>
+                                           </div>
+                                       </div>
+                                       <div class="col-6 d-flex justify-content-center align-items-center">
+                                           <div class="numbers">
+                                               <p>{{file.fileName}}</p>
+                                              
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </a>
+                     </div>
+                     </div>
+                  
+               
+               </div>
+           </div>
+           
+           
+       </div>
+         <div class="tab-content" id="pills-tabContent" *ngFor="let file of files | async">
+           <div class="tab-pane fade active show" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+               <div class="row"  >
+                   <div class="col-lg-4 col-sm-6">
+                     <div *ngIf="file.fileType == 'application/pdf'">
+                       <a class="member-item"(click)="onDownloadFile(file.id)"  style="cursor: pointer;">
+                         {{ filename }}            
+                      
+                           <div class="card mb-2 mb-md-5 py-3">
+                               <div class="content">
+                                   <div class="row">
+                                       <div class="col-6 d-flex justify-content-center align-items-center">
+                                           <div class="icon-big text-warning text-center">
+                                             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" color="green" fill="currentColor" class="bi bi-filetype-pdf" viewBox="0 0 16 16">
+                                               <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/>
+                                             </svg>
+                                           </div>
+                                       </div>
+                                       <div class="col-6 d-flex justify-content-center align-items-center">
+                                           <div class="numbers">
+                                               <p>{{file.fileName}}</p>
+                                              
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </a>
+                     </div>
+                     </div>
+                  
+               
+               </div>
+           </div>
+        
+           
+       </div>
+     </div>
+   </div>
+   </div>
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <br>
+ 
+         <div  class="js-upload-finished">
+           <h3>Processed files</h3>
+           <div *ngFor="let filename of filenames" class="list-group">
+             <a (click)="onDownloadFile(filename)" class="list-group-item list-group-item-success" style="cursor: pointer;">
+               {{ filename }}            
+               <a class="alert-success float-right">Download</a>
+             </a><br>
+           </div>
+         </div>
+   
+       </div>
+     </div>
+       </div>
+         

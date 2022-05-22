@@ -1,0 +1,89 @@
+<div id="content">
+                
+    <!-- Topbar -->
+    
+
+    <!-- Begin Page Content -->
+
+        <!-- Page Heading -->
+        
+
+        <!-- Content Row -->
+        <div class="row">
+
+            
+            <div id="content-wrapper" class="d-flex flex-column">
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Les Formateurs </h6>
+                    </div>
+                    <br>
+                    <br>
+                    
+                    <form
+  class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" style="float: right;">
+  <div class="input-group" style="float: right;">
+      <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+          aria-label="Search" aria-describedby="basic-addon2" style="float: right;">
+      <div class="input-group-append">
+          <button class="btn btn-primary" type="button">
+              <i class="fas fa-search fa-sm"></i>
+          </button>
+      </div>
+  </div>
+  </form>
+                    <div class="card-body">
+                        <div style="overflow-x:auto;">
+                            <table class="table table-bordered" id="dataTable" width="60%" cellspacing="20">
+                                <thead>
+                                    <tr>
+                                        <th >Identifiant</th>
+                                        <th>Titre</th>
+                                        <th >Date </th>
+                                        <th>Description</th>
+                                        <th>Nombre des participants</th>
+                                        <th>Prix</th>
+                                    </tr>
+                                </thead>
+                                  <!-- Topbar Search -->
+                    
+  
+        <tbody>
+          <tr *ngFor="let formation of formations | async">
+            <td>{{formation.idFormation}}</td>
+            <td>{{formation.titreFormation}}</td>
+            <td>{{formation.dateFormation}}</td>
+            <td>{{formation.descriptionFormation}}</td>
+           
+            <td>{{formation.nbDePlace}}</td>
+            <td>{{formation.prixFormation}}</td>
+            
+            <td></td>
+  
+            <td>
+        
+                <button (click)="deleteFormation(formation.idFormation)" class="btn btn-outline-danger"style="margin-left: 15px" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                    <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                  </svg></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    </div>
+    </div>
+  
+            
+           
+        </div>
+
+        <!-- Content Row -->
+
+       
+      
+
+    
+    <!-- /.container-fluid -->
+
+</div>
