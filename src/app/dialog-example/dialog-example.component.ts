@@ -11,6 +11,7 @@ import { User } from 'src/models/user';
 })
 export class DialogExampleComponent implements OnInit {
 
+  
   idFormation:number;
   formation:Formation;
   user:User;
