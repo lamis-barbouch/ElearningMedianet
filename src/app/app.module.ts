@@ -82,6 +82,8 @@ import { ThankYouComponent } from './thank-you/thank-you.component';
 import { TestComponent } from './test/test.component';
 import { ChatComponent } from './chat/chat.component';
 import { PdfResultatComponent } from './pdf-resultat/pdf-resultat.component';
+import { ReclamAdminComponent } from './reclam-admin/reclam-admin.component';
+import { ReponseReclamComponent } from './reponse-reclam/reponse-reclam.component';
 
 
 @NgModule({
@@ -137,6 +139,8 @@ import { PdfResultatComponent } from './pdf-resultat/pdf-resultat.component';
     TestComponent,
     ChatComponent,
     PdfResultatComponent,
+    ReclamAdminComponent,
+    ReponseReclamComponent,
     
   ],
   entryComponents:[DialogExampleComponent],

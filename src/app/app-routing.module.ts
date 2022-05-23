@@ -38,9 +38,11 @@ import { RessourcesComponent } from './ressources/ressources.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
 import { ChatComponent } from './chat/chat.component';
 import { PdfResultatComponent } from './pdf-resultat/pdf-resultat.component';
+import { ReclamAdminComponent } from './reclam-admin/reclam-admin.component';
 
 
 const routes: Routes = [
+  {path:'reclamAdmin',component:ReclamAdminComponent},
   { path: '', component: WelcomeComponent, pathMatch: 'full' },
   { path: 'registration', component: RegistrationComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent, pathMatch: 'full' },
