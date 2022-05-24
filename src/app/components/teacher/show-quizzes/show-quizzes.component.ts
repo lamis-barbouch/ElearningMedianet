@@ -104,7 +104,7 @@ export class ShowQuizzesComponent implements OnInit {
   setQuizSchedule(quizId, title) {
     let quiz = this.quizzes.find((quiz) => quiz.quizId == quizId);
     this.router.navigate([
-      'teacher/quiz-schedule/' + quiz.quizId + '/' + quiz.title,
+      'formateur/quiz-schedule/' + quiz.quizId + '/' + quiz.title,
     ]);
   }
   /* --------------------------------------------------------------------------------- */

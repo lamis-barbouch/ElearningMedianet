@@ -1,3 +1,5 @@
+<app-header-formateur></app-header-formateur>
+<br>
 <div *ngIf="resultListLength>0" class="container-fluid">
 
     <mat-card>
@@ -31,7 +33,7 @@
                         <td>{{ (result.totalCorrectAnswer/result.numberOfQuestion)*100 }}%</td>
                         <td>
                             <button mat-raised-button
-                                [routerLink]="['/teacher/student-exam-result/'+result.submitQuizId]">Answer
+                                [routerLink]="['/formateur/student-exam-result/'+result.submitQuizId]">Answer
                                 Script</button>
                         </td>
                     </tr>

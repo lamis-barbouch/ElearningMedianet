@@ -75,7 +75,7 @@ export class AddQuestionComponent implements OnInit {
             });
           }
           this.router.navigate([
-            'teacher/quiz-questions/' +
+            'formateur/quiz-questions/' +
               this.question.quizId +
               '/' +
               this.quizTitle,

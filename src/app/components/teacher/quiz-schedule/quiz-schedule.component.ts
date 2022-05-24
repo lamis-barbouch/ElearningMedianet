@@ -51,7 +51,7 @@ export class QuizScheduleComponent implements OnInit {
       this.quizService.setQuizSchedule(this.quizSchedule).subscribe(
         (response: any) => {
           Swal.fire('Successful', response.message, 'success');
-          this.router.navigate(['teacher/quizzes']);
+          this.router.navigate(['formateur/quizzes']);
         },
         (error) => {
           this.snackBar.open('Fail Operation !  !  !  !', 'Close', {

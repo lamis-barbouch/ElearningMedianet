@@ -58,7 +58,7 @@ export class AddQuizComponent implements OnInit {
 
   /* --------------------------------------------------------------------------- */
   voirLesQuiz(){
-    this.router.navigate(['teacher/quizzes']);
+    this.router.navigate(['formateur/quizzes']);
   }
 
   quizSubmit() {
