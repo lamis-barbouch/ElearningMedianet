@@ -35,6 +35,12 @@ export class QuizInstructionsComponent implements OnInit {
     private quizService: QuizService,
     private router: Router
   ) {}
+  public logout(){
+    
+    this.router.navigate(['/login']);
+    
+ 
+   }
 
   ngOnInit(): void {
     this.quizId = this.activeRoute.snapshot.params.quizId;

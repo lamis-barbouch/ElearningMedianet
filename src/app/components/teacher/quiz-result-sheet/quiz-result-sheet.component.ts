@@ -1,8 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { QuizService } from 'src/app/services/quiz/quiz.service';
 import Swal from 'sweetalert2';
+import jsPDF from 'jspdf';
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+import htmlToPdfmake from 'html-to-pdfmake';
 interface Result {
   username: string;
   submitQuizId: number;
@@ -29,7 +34,20 @@ export class QuizResultSheetComponent implements OnInit {
     private activeRoute: ActivatedRoute,
     private quizService: QuizService
   ) {}
-
+  @ViewChild('pdfTable') pdfTable: ElementRef;
+   
+  public downloadAsPDF() {
+    
+    const doc = new jsPDF();
+    
+    const pdfTable = this.pdfTable.nativeElement;
+    
+    var html = htmlToPdfmake(pdfTable.innerHTML);
+      
+    const documentDefinition = { content: html };
+    pdfMake.createPdf(documentDefinition).open(); 
+      
+  }
   ngOnInit(): void {
     this.quizId = this.activeRoute.snapshot.params.quizId;
     this.quizTitle = this.activeRoute.snapshot.params.title;

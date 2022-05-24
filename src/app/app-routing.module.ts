@@ -42,6 +42,7 @@ import { ReclamAdminComponent } from './reclam-admin/reclam-admin.component';
 import { MSubjectByLikesComponent } from './msubject-by-likes/msubject-by-likes.component';
 import { ForumUserComponent } from './forum-user/forum-user.component';
 import { ReclamUserComponent } from './reclam-user/reclam-user.component';
+import { HomeStudentComponent } from './home-student/home-student.component';
 
 
 const routes: Routes = [
@@ -62,6 +63,7 @@ const routes: Routes = [
 {path:'thank-you',component:ThankYouComponent},
 {path:'chat',component:ChatComponent},
 {path:'pdf',component:PdfResultatComponent},
+
   {
     path: 'admin',
     component: AdminDashboardComponent,canActivate: [AdminGuard],
@@ -108,6 +110,7 @@ const routes: Routes = [
       { path: '', component: StudentHomeComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'find-quiz', component: SearchQuizComponent },
+      {path:'home',component:HomeStudentComponent},
       {
         path: 'quiz-instructions/:quizId/:title',
         component: QuizInstructionsComponent,

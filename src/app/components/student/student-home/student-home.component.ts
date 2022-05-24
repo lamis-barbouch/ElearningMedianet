@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { CategoryService } from 'src/app/services/category/category.service';
 import { QuizService } from 'src/app/services/quiz/quiz.service';
 import Swal from 'sweetalert2';
@@ -19,8 +20,16 @@ export class StudentHomeComponent implements OnInit {
   constructor(
     private snackBar: MatSnackBar,
     private categoryService: CategoryService,
-    private quizService: QuizService
+    private quizService: QuizService,
+    private router: Router
   ) {}
+
+  public logout(){
+    
+    this.router.navigate(['/login']);
+    
+ 
+   }
 
   ngOnInit(): void {
     /* --Backend API For All Categories With Quiz-- */

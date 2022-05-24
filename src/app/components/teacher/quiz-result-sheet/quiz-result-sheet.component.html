@@ -1,6 +1,6 @@
 <app-header-formateur></app-header-formateur>
 <br>
-<div *ngIf="resultListLength>0" class="container-fluid">
+<div *ngIf="resultListLength>0" class="container-fluid" id="pdfTable" #pdfTable>
 
     <mat-card>
 
@@ -46,7 +46,7 @@
 
     <div class="row text-center mt-3">
         <div class="col-md-12">
-            <button mat-raised-button color="primary" (click)="generatePdf()">Generate <mat-icon>picture_as_pdf</mat-icon></button>
+            <button mat-raised-button color="primary" (click)="downloadAsPDF()">Generate <mat-icon>picture_as_pdf</mat-icon></button>
         </div>
     </div>
 

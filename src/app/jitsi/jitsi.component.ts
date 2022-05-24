@@ -99,6 +99,14 @@ export class JitsiComponent implements OnInit, AfterViewInit {
       });
   }
 
+  public logout(){
+    
+    this.router.navigate(['/login']);
+    
+ 
+   }
+
+
   // custom events
   executeCommand(command: string) {
       this.api.executeCommand(command);;

@@ -76,6 +76,12 @@ export class ExamComponent implements OnInit {
     );
   }
 
+  public logout(){
+    
+    this.router.navigate(['/login']);
+    
+ 
+   }
   /* ------------------------------------------------------------ */
   preventBrowserBackButton() {
     history.pushState(null, null, location.href);
