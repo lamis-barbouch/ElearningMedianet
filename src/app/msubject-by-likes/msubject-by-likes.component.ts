@@ -9,12 +9,11 @@ import { UserAuthService } from '../_services/user-auth.service';
 import { UserService } from '../_services/user.service';
 
 @Component({
-  selector: 'app-forum-admin',
-  templateUrl: './forum-admin.component.html',
-  styleUrls: ['./forum-admin.component.css']
+  selector: 'app-msubject-by-likes',
+  templateUrl: './msubject-by-likes.component.html',
+  styleUrls: ['./msubject-by-likes.component.css']
 })
-export class ForumAdminComponent implements OnInit {
-
+export class MSubjectByLikesComponent implements OnInit {
 
   forums:Observable<Forum []>;
 
@@ -27,7 +26,7 @@ export class ForumAdminComponent implements OnInit {
   }
 
   reloadData() {
-    this.forums=this.forumService.getSubjectList();
+    this.forums=this.forumService.displayBestSubjectByrating();
   }
   openDialog(){
     this.dialog.open(TestComponent);

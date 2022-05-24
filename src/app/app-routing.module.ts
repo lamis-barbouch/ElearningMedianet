@@ -39,9 +39,11 @@ import { ThankYouComponent } from './thank-you/thank-you.component';
 import { ChatComponent } from './chat/chat.component';
 import { PdfResultatComponent } from './pdf-resultat/pdf-resultat.component';
 import { ReclamAdminComponent } from './reclam-admin/reclam-admin.component';
+import { MSubjectByLikesComponent } from './msubject-by-likes/msubject-by-likes.component';
 
 
 const routes: Routes = [
+  {path:'SubjectRate',component:MSubjectByLikesComponent},
   {path:'reclamAdmin',component:ReclamAdminComponent},
   { path: '', component: WelcomeComponent, pathMatch: 'full' },
   { path: 'registration', component: RegistrationComponent, pathMatch: 'full' },
