@@ -128,53 +128,46 @@ img {
 </head>
 <body translate="no">
 <h1>Bientôt disponible</h1>
-<div class="container">
+<div class="container-xxl">
 <div class="faders">
 <div class="left"></div>
 <div class="right"></div>
 </div>
+</div>
 <div class="items">
+    <div class="horizontal"  *ngFor="let formation of formations | async">
+    <div class="entry" >
+    
+        <div >
+            <ul class="event-list">
+                <li>
+                    <time datetime="2014-07-31 1600">
+                        <span class="day">{{formation.dateFormation}}</span>
+                        
+                    </time>
+                    
+                    
+                </li>
+            </ul>
+        </div>
+    
+    
+    <p class="quote"><b>{{formation.titreFormation}}</b></p>
+    <p class="quote">{{formation.descriptionFormation}}</p>
+    <p class="quote">{{formation.dateFormation}}</p>
+    <button mat-raised-button (click)="openDialog()" class="btn btn-outline-info">Détails</button></div>
+    
 
-<div class="entry">
-<p class="name">John Doe</p>
-<img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Smiling person" />
-<p class="quote">"Man, I think this app freaking rocks and stuff. Dude."</p>
+        
+
+
+    
 </div>
-<div class="entry">
-<p class="name">John Doe</p>
-<img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Smiling person" />
-<p class="quote">"Man, I think this app freaking rocks and stuff. Dude."</p>
-</div>
-<div class="entry">
-<p class="name">John Doe</p>
-<img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Smiling person" />
-<p class="quote">"Man, I think this app freaking rocks and stuff. Dude."</p>
-</div>
-<div class="entry">
-<p class="name">John Doe</p>
-<img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Smiling person" />
-<p class="quote">"Man, I think this app freaking rocks and stuff. Dude."</p>
-</div>
-<div class="entry">
-<p class="name">John Doe</p>
-<img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Smiling person" />
-<p class="quote">"Man, I think this app freaking rocks and stuff. Dude."</p>
-</div>
-<div class="entry">
-<p class="name">John Doe</p>
-<img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Smiling person" />
-<p class="quote">"Man, I think this app freaking rocks and stuff. Dude."</p>
-</div>
-<div class="entry">
-<p class="name">John Doe</p>
-<img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Smiling person" />
-<p class="quote">"Man, I think this app freaking rocks and stuff. Dude."</p>
-</div>
-</div>
+    </div>
 
 
 
-</div>
+
 <br>
 <br>
 <br>
@@ -354,12 +347,77 @@ img {
     </div>
   </div>
   </div>
+<br><br><br><br><br><br><br>
+  <div class="container-xxl">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <div class="container bootstrap snippets bootdeys">
+          <div class="row text-center">
+              
+          
+
+            <div class="col-sm-6">
+                <div class="contact-detail-box">
+                  <i class="fa fa-map-marker fa-3x text-colored"></i>
+                  <h4>Adresse</h4>
+      
+                  <address>
+                      Avenue Habib Bourguiba, 10 Décembre <br> Immeuble Essadi Tour C-D Mezzanine Menzah 4, 1004 Tunis<br>
+                </address>
+                </div>
+              </div><!-- end col -->
+      
+            <div class="col-sm-6">
+              <div class="contact-detail-box">
+                <i class="fa fa-th fa-3x text-colored"></i>
+                <h4>Restez en contact avec MEDIANET</h4>
+                <abbr title="Phone">Tél:</abbr> +216 28 910 608<br>
+                Email: <a href="mailto:email@email.com" class="text-muted">info@medianet.com.tn</a>
+              </div>
+            </div><!-- end col -->
+    
+         
+           
+    
+          </div>
+          <!-- end row -->
+    
+    
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="contact-map">
+                <div style="width: 100%"><iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Avenue%20Habib%20Bourguiba,%2010%20D%C3%A9cembre%20,%20Immeuble%20Essadi%20Tour%20C-D%20Mezzanine%20Menzah%204,%201004%20Tunis+(My%20Business%20Name)&amp;t=p&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/wearable-gps/">wearable gps</a></iframe></div>
+              </div>
+            </div><!-- end col -->
+    
+            <!-- Contact form -->
+            <div class="col-sm-6">
+              <form (ngSubmit)="onSubmit()">
+    
+                <div class="form-group">
+                  <label for="name2">Sujet</label>
+                  <input name="sujet"  type="text"
+                  class="form-control" id="sujet" 
+                   [(ngModel)]="reclam.sujet" #sujet="ngModel" required >             
+                   </div> <!-- /Form-name -->
+    
+                
+                   
+                    <ckeditor rows="40" [editor]="Editor" name="text"  id="text"
+                     [(ngModel)]="reclam.text" #text="ngModel" required 
+                      data="<p>Cantactez nous  . . . . . .</p>"></ckeditor><br>
+                  
+                  <button type="submit" class="btn btn-success" >Enregistrer</button>
+              </form> <!-- /form -->
+            </div> <!-- end col -->
+    
+          </div> <!-- end row -->
+              
+        </div>
+  </div>
 </body>
 
 </html>
 
 <br><br><br> <br>
-<br><br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br> <br>
-<br><br><br> <br>
+<br><br><br> <br><br><br><br> <br><br><br><br> 
 
-<app-footer></app-footer>

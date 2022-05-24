@@ -40,9 +40,13 @@ import { ChatComponent } from './chat/chat.component';
 import { PdfResultatComponent } from './pdf-resultat/pdf-resultat.component';
 import { ReclamAdminComponent } from './reclam-admin/reclam-admin.component';
 import { MSubjectByLikesComponent } from './msubject-by-likes/msubject-by-likes.component';
+import { ForumUserComponent } from './forum-user/forum-user.component';
+import { ReclamUserComponent } from './reclam-user/reclam-user.component';
 
 
 const routes: Routes = [
+  {path:'reclam',component:ReclamUserComponent},
+  {path:'blog',component:ForumUserComponent},
   {path:'SubjectRate',component:MSubjectByLikesComponent},
   {path:'reclamAdmin',component:ReclamAdminComponent},
   { path: '', component: WelcomeComponent, pathMatch: 'full' },

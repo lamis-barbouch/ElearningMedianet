@@ -85,6 +85,8 @@ import { PdfResultatComponent } from './pdf-resultat/pdf-resultat.component';
 import { ReclamAdminComponent } from './reclam-admin/reclam-admin.component';
 import { ReponseReclamComponent } from './reponse-reclam/reponse-reclam.component';
 import { MSubjectByLikesComponent } from './msubject-by-likes/msubject-by-likes.component';
+import { ForumUserComponent } from './forum-user/forum-user.component';
+import { ReclamUserComponent } from './reclam-user/reclam-user.component';
 
 
 @NgModule({
@@ -143,6 +145,8 @@ import { MSubjectByLikesComponent } from './msubject-by-likes/msubject-by-likes.
     ReclamAdminComponent,
     ReponseReclamComponent,
     MSubjectByLikesComponent,
+    ForumUserComponent,
+    ReclamUserComponent,
     
   ],
   entryComponents:[DialogExampleComponent],

@@ -1,80 +1,98 @@
-<mat-card>
+<app-header-formateur></app-header-formateur>
+<br>
 
-    <mat-card-header>
-        <mat-card-title>User Account</mat-card-title>
-        <mat-card-subtitle>Profile</mat-card-subtitle>
-    </mat-card-header>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-    <mat-card-content>
-        <div class="container">
-            <div class="container text-center">
-                <img src="../../../assets/profile.png" class="responsive"
-                    alt="Profile Picture">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/4.4.95/css/materialdesignicons.css">
 
-                <h2>{{user.firstName}} {{user.lastName}}</h2>
-            </div>
-
-            <div class="row">
-                <div class="col-md-8 offset-md-2">
-
-                    <mat-divider></mat-divider><br>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <mat-list-item>Username</mat-list-item>
-                        </div>
-                        <div class="col-md-6">{{user.username}}</div>
-                    </div>
-                    <br>
-                    <mat-divider></mat-divider><br>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <mat-list-item>Email</mat-list-item>
-                        </div>
-                        <div class="col-md-6">{{user.email}}</div>
-                    </div>
-                    <br>
-                    <mat-divider></mat-divider><br>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <mat-list-item>Mobile</mat-list-item>
-                        </div>
-                        <div class="col-md-6">{{user.mobile}}</div>
-                    </div>
-                    <br>
-                    <mat-divider></mat-divider><br>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <mat-list-item>Role</mat-list-item>
-                        </div>
-                        <div class="col-md-6">{{user.roleList[0] | titlecase}}</div>
-                    </div>
-                    <br>
-                    <mat-divider></mat-divider><br>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <mat-list-item>Account Status</mat-list-item>
-                        </div>
-                        <div class="col-md-6">Active</div>
-                    </div>
+		<!-- partial -->
+		<div class="main-panel">
+			<div class="container-xxl">
 
 
-                </div>
-            </div>
+				<div class="row">
+					<div class="col-md-4 grid-margin stretch-card">
+						<div class="card">
+							<div class="profile-card">
 
-        </div>
-    </mat-card-content>
+								<div class="profile-header">
+								
+									<div class="user-image">
+                                        <img class="d-flex g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Image Description">									</div>
+								</div>
 
-    <mat-card-actions>
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-md-9"></div>
-                <div class="col-md-3">
-                    <button mat-button>Edit</button><br>
-                    <button mat-button>Change Password</button>
-                </div>
-            </div>
+								<div class="profile-content">
+									<div class="profile-name">Lamis BARBOUCH</div>
+									<div class="profile-designation">Ingénieur</div>
+									<p class="profile-description">Ingénieur en Informatique,Spécialité Génie logiciel</p>
+									<ul class="profile-info-list">
+										<a href="/apprenant" class="profile-info-list-item"><i class="mdi mdi-eye"></i>Acceuil</a>
+										<a href="" class="profile-info-list-item"><i class="mdi mdi-bookmark-check"></i>Formations</a>
+										
 
-        </div>
-    </mat-card-actions>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
 
-</mat-card>
+					<div class="col-md-8 grid-margin stretch-card-xxl">
+						<div class="card">
+							<div class="card-body">
+								<p class="card-title font-weight-bold">Informations</p>
+								<hr>
+								<p class="card-description">Utilisateur</p>
+								<ul class="about">
+									<li class="about-items"><i class="mdi mdi-account icon-sm "></i><span class="about-item-name">Nom:</span><span class="about-item-detail">Lamis</span><a href="" class="about-item-edit">Edit</a></li>
+									<li class="about-items"><i class="mdi mdi-mail-ru icon-sm "></i><span class="about-item-name">Prénom:</span><span class="about-item-detail">BARBOUCH</span> <a href="" class="about-item-edit">Edit</a></li>
+									<li class="about-items"><i class="mdi mdi-lock-outline icon-sm "></i><span class="about-item-name">Mot de passe:</span><span class="about-item-detail">**********</span> <a href="" class="about-item-edit">Edit</a></li>
+									<li class="about-items"><i class="mdi mdi-format-align-left icon-sm "></i><span class="about-item-name">Bio</span><span class="about-item-detail">Ingénieur en Informatique,Spécialité Génie logiciel.</span> <a href="" class="about-item-edit">Edit</a></li>
+									
+                   
+                      
+								</ul>
+								<p class="card-description">Contact</p>
+								<ul class="about">
+									<li class="about-items"><i class="mdi mdi-phone icon-sm "></i><span class="about-item-name">Téléphone:</span><span class="about-item-detail">+216216216</span><a href="" class="about-item-edit">Edit</a></li>
+									<li class="about-items"><i class="mdi mdi-map-marker icon-sm "></i><span class="about-item-name">Adresse:</span><span class="about-item-detail">TUNIS,TUNISIE</span> <a href="" class="about-item-edit">Edit</a></li>
+									<li class="about-items"><i class="mdi mdi-email-outline icon-sm "></i><span class="about-item-name">Email:</span><span class="about-item-detail"><a href="">lamis.barbouch@gmail.com</a></span> <a href="" class="about-item-edit">Edit</a></li>
+									<li class="about-items"><i class="mdi mdi-web icon-sm "></i><span class="about-item-name">Site:</span><span class="about-item-detail"><a href="google.com">https://www.linkedin.com/in/lamis-barbouch/</a></span> <a href="" class="about-item-edit">Edit</a></li>
+								</ul>
+								<p class="card-description">Basic Information</p>
+								<ul class="about">
+									<li class="about-items"><i class="mdi mdi-cake icon-sm "></i><span class="about-item-name">Birthday:</span><span class="about-item-detail">Juin 24 , 1998</span><a href="" class="about-item-edit">Edit</a></li>
+									<li class="about-items"><i class="mdi mdi-clipboard-account icon-sm "></i><span class="about-item-name">Profession:</span><span class="about-item-detail">Ingénieur</span> <a href="" class="about-item-edit">Edit</a></li>
+								</ul>
+
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+
+
+
+			</div>
+			<!-- content-wrapper ends -->
+			<!-- partial:partials/_footer.html -->
+
+			
+			<!-- partial -->
+		</div>
+		<!-- main-panel ends -->
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <app-footer></app-footer>
