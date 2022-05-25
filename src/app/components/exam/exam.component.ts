@@ -45,6 +45,7 @@ export class ExamComponent implements OnInit {
   questionList: Question[] = [];
   public username: any;
   
+  
 
   constructor(
     private snackBar: MatSnackBar,
@@ -55,6 +56,7 @@ export class ExamComponent implements OnInit {
     private locationStrategy: LocationStrategy
   ) {}
 
+  
   ngOnInit(): void {
     this.quizId = this.activeRoute.snapshot.params.quizId;
     this.quizTitle = this.activeRoute.snapshot.params.title;
@@ -150,6 +152,7 @@ export class ExamComponent implements OnInit {
                 'Your Quiz Submit Successfully.',
                 'success'
               );
+              this.router.navigate(['/student/quiz-result-sheet/2/test']);
             } else {
               Swal.fire({
                 icon: 'error',
@@ -164,6 +167,7 @@ export class ExamComponent implements OnInit {
               'Your Quiz Submit Successfully.',
               'success'
             );
+            this.router.navigate(['/student/quiz-result-sheet/2/test']);
           }
         );
       }
@@ -243,5 +247,6 @@ export class ExamComponent implements OnInit {
     return `${m} Min : ${s} Sec.`;
   }
 
+  
   /* ------------------------------------------------------------ */
 }

@@ -39,7 +39,7 @@ export class DetailsFormationComponent implements OnInit {
         token: function (stripeToken: any) {
           console.log({stripeToken})
           alert('Stripe token generated!');
-          this.router.navigate(['getFormationDetail',Formation])
+           this.router.navigate(['getFormationDetail',Formation])
         }
       });
     
@@ -51,6 +51,12 @@ export class DetailsFormationComponent implements OnInit {
     }
     
     invokeStripe() {
+      this.formationService.participer(this.cinUser,this.idFormation,this.value).subscribe(
+           data => {
+             console.log(data);
+           },
+           error => console.log(error)
+        );
       if(!window.document.getElementById('stripe-script')) {
         const script = window.document.createElement("script");
         script.id = "stripe-script";
@@ -68,6 +74,7 @@ export class DetailsFormationComponent implements OnInit {
           });
         }
         window.document.body.appendChild(script);
+        this.router.navigate(['getFormationDetail',Formation])
       }
     }
     getFormationDetail(idFormation:number){

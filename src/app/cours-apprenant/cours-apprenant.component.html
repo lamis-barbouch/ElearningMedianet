@@ -1,0 +1,410 @@
+
+<head>
+    <link href="https://bootswatch.com/4/journal/bootstrap.css"> 
+    <style>
+     @import url("https://fonts.googleapis.com/css?family=Muli:400,700&display=swap");
+ 
+ body {
+ margin: 0;
+ height: calc(100vh - 8em);
+ font-family: "Muli", sans-serif;
+ background-color: #ffffff;
+ }
+ 
+ h1 {
+ text-align: center;
+ margin: 1.5em;
+ }
+ 
+ img {
+ width: 35%;
+ border-radius: 50%;
+ }
+ 
+ .container {
+ width: 100%;
+ overflow: hidden;
+ position: relative;
+ }
+ 
+ .items {
+ display: flex;
+ align-items: center;
+ width: 100%;
+ animation: carouselAnim 50s infinite alternate linear;
+ }
+ 
+ .entry {
+ display: flex;
+ align-items: center;
+ flex-direction: column;
+ position: relative;
+ width: 300px;
+ background: #fff;
+ margin: 1em;
+ padding: 0.5em;
+ border-radius: 10px;
+ box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.5);
+ }
+ 
+ @media only screen and (max-width: 768px) {
+ .items {
+   animation: carouselAnim 35s infinite alternate linear;
+ }
+ 
+ @keyframes carouselAnim {
+   from {
+     transform: translate(0, 0);
+   }
+   to {
+     transform: translate(calc(-100% + (2 * 300px)));
+   }
+ }
+ }
+ 
+ .entry p {
+ text-align: center;
+ padding: 1em;
+ }
+ 
+ .name {
+ font-weight: bold;
+ }
+ 
+ @keyframes carouselAnim {
+ from {
+   transform: translate(0, 0);
+ }
+ to {
+   transform: translate(calc(-100% + (5 * 300px)));
+ }
+ }
+ 
+ .container .faders {
+ width: 100%;
+ position: absolute;
+ height: 100%;
+ }
+ 
+ .faders .right,
+ .faders .left {
+ background: linear-gradient(
+   to right,
+   rgba(245, 245, 245, 1) 0%,
+   rgba(255, 255, 255, 0) 100%
+ );
+ width: 100%;
+ height: 100%;
+ position: absolute;
+ z-index: 200;
+ }
+ 
+ .right {
+ right: 0;
+ background: linear-gradient(
+   to left,
+   rgba(245, 245, 245, 1) 0%,
+   rgba(255, 255, 255, 0) 100%
+ );
+ }
+ 
+   </style>
+ </head>
+ 
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Espace Apprenant</title>
+
+    <!-- Custom fonts for this template-->
+    <link src="../../assets/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link src="../../assets/css/sb-admin-2.min.css" rel="stylesheet">
+    
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Menu -->
+        <div class='dashboard'>
+            <div class="dashboard-nav">
+               
+                <nav class="dashboard-nav-list"><a href="#" class="dashboard-nav-item1">
+                    Bienvenue Lamis </a>
+                    <br>
+                    <a
+                        href="/student/home" class="dashboard-nav-item active"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-speedometer2" viewBox="0 0 16 16">
+                            <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"/>
+                            <path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"/>
+                          </svg> &nbsp;  Acceuil
+                </a><a
+                        href="/admin/formations" class="dashboard-nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-heart" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5ZM1 14V4h14v10a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1Zm7-6.507c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
+                          </svg> &nbsp; Profile </a>
+                          <a
+                          href="/formateurs" class="dashboard-nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
+                            <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+                          </svg> &nbsp; Formations </a>
+                    
+                          
+                    <a
+                        href="/reclamAdmin" class="dashboard-nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-open" viewBox="0 0 16 16">
+                            <path d="M8.47 1.318a1 1 0 0 0-.94 0l-6 3.2A1 1 0 0 0 1 5.4v.817l5.75 3.45L8 8.917l1.25.75L15 6.217V5.4a1 1 0 0 0-.53-.882l-6-3.2ZM15 7.383l-4.778 2.867L15 13.117V7.383Zm-.035 6.88L8 10.082l-6.965 4.18A1 1 0 0 0 2 15h12a1 1 0 0 0 .965-.738ZM1 13.116l4.778-2.867L1 7.383v5.734ZM7.059.435a2 2 0 0 1 1.882 0l6 3.2A2 2 0 0 1 16 5.4V14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5.4a2 2 0 0 1 1.059-1.765l6-3.2Z"/>
+                          </svg> &nbsp; Réclamations </a>
+                          <a
+                          routerLink="/forumAdmin" class="dashboard-nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-mailbox2" viewBox="0 0 16 16">
+                            <path d="M9 8.5h2.793l.853.854A.5.5 0 0 0 13 9.5h1a.5.5 0 0 0 .5-.5V8a.5.5 0 0 0-.5-.5H9v1z"/>
+                            <path d="M12 3H4a4 4 0 0 0-4 4v6a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V7a4 4 0 0 0-4-4zM8 7a3.99 3.99 0 0 0-1.354-3H12a3 3 0 0 1 3 3v6H8V7zm-3.415.157C4.42 7.087 4.218 7 4 7c-.218 0-.42.086-.585.157C3.164 7.264 3 7.334 3 7a1 1 0 0 1 2 0c0 .334-.164.264-.415.157z"/>
+                          </svg> &nbsp; Forum </a>
+                 
+                          <a
+                          href="/admin/showCategory" class="dashboard-nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-ul" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                          </svg> &nbsp; Chat </a>
+  
+                            <a
+                        href="#" class="dashboard-nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-question" viewBox="0 0 16 16">
+                            <path d="M8.05 9.6c.336 0 .504-.24.554-.627.04-.534.198-.815.847-1.26.673-.475 1.049-1.09 1.049-1.986 0-1.325-.92-2.227-2.262-2.227-1.02 0-1.792.492-2.1 1.29A1.71 1.71 0 0 0 6 5.48c0 .393.203.64.545.64.272 0 .455-.147.564-.51.158-.592.525-.915 1.074-.915.61 0 1.03.446 1.03 1.084 0 .563-.208.885-.822 1.325-.619.433-.926.914-.926 1.64v.111c0 .428.208.745.585.745z"/>
+                            <path d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z"/>
+                            <path d="M7.001 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0z"/>
+                          </svg> &nbsp; Quiz </a>
+
+                </nav>
+            </div>
+            <div class='dashboard-app'>
+             
+                <div class='dashboard-content'>
+                    <div class='container'>
+                        <div id="content-wrapper" class="d-flex flex-column">
+
+ <div class="container" style="margin-top: 20px;">
+     <div class="panel panel-default">
+       <div class="panel-heading">
+         <h4>Ajouter des cours</h4>
+       </div><br>
+       <div class="panel-body">        
+         <strong>Sélectionnez des fichiers sur votre ordinateur</strong>
+         <div *ngIf="fileStatus.status==='progress'">
+           <div class="progress">
+             <div [style.width.%]="fileStatus.percent" class="progress-bar progress-bar-animated bg-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                 {{ fileStatus.requestType }} {{ fileStatus.percent }} 
+               </div>
+           </div>
+         </div> <hr>
+   
+         <form enctype="multipart/form-data">
+           <fieldset>
+             <div class="form-group">
+               <div>
+                 <input type="file" (change)="onUploadFiles($event.target.files)" name="files" multiple class="form-control" />
+               </div>
+             </div>
+           </fieldset>
+         </form>
+         
+         <br>  
+ 
+         <div class="panel panel-primary">
+           <div class="panel-heading">
+             <h2> List</h2>
+           </div>
+           <div class="panel-body">
+             <table class="table table-striped">
+               <thead>
+                 <tr>
+                   <th>id</th>
+                   <th>filename</th>
+                   <th>Type</th>
+                   
+                 </tr>
+               </thead>
+               <tbody>
+                 <tr *ngFor="let file of files | async">
+                   <td>{{file.id}}</td>
+                   <td>{{file.fileName}}</td>
+                   <td>{{file.fileType}}</td>
+                   <td><a (click)="onDownloadFile(file.id)" class="list-group-item list-group-item-success" style="cursor: pointer;">
+                     {{ filename }}            
+                     <a class="alert-success float-right">Download</a>
+                   </a></td>
+                   
+                 </tr>
+ 
+               </tbody>
+             </table>
+           </div>
+ 
+       
+ <br>
+ 
+ <div >
+ <div class="container"  >
+   <div class="row" >
+     <div class="col-12" style="height: 100%; width: 100%;">
+        
+         <div class="tab-content" id="pills-tabContent"  *ngFor="let file of files | async">
+             <div class="tab-pane fade active show" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" style="height: 100%; width: 100%;">
+                 <div class="row" style="height: 100%; width: 100%;" >
+                     <div class="col-lg-4 col-sm-6" >
+                       <div *ngIf="file.fileType == 'image/jpeg'">
+                         <a class="member-item"(click)="onDownloadFile(file.id)"  style="cursor: pointer;">
+                           {{ filename }}            
+                        
+                             <div class="card mb-2 mb-md-5 py-3">
+                                 <div class="content">
+                                     <div class="row">
+                                         <div class="col-6 d-flex justify-content-center align-items-center">
+                                             <div class="icon-big text-warning text-center">
+                                               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-image" viewBox="0 0 16 16">
+                                                 <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                                                 <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z"/>
+                                               </svg>
+                                             </div>
+                                         </div>
+                                         <div class="col-6 d-flex justify-content-center align-items-center">
+                                             <div class="numbers">
+                                                 <p>{{file.fileName}}</p>
+                                                
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                         </a>
+                       </div>
+                       </div>
+                    
+                 
+                 </div>
+             </div>
+             
+             
+         </div>
+         <div class="tab-content" id="pills-tabContent"  *ngFor="let file of files | async">
+           <div class="tab-pane fade active show" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+               <div class="row" >
+                   <div class="col-lg-4 col-sm-6" >
+                     <div *ngIf="file.fileType == 'application/vnd.openxmlformats-officedocument.presentationml.presentation'">
+                       <a class="member-item"(click)="onDownloadFile(file.id)"  style="cursor: pointer;">
+                         {{ filename }}            
+                      
+                           <div class="card mb-2 mb-md-5 py-3">
+                               <div class="content">
+                                   <div class="row">
+                                       <div class="col-6 d-flex justify-content-center align-items-center">
+                                           <div class="icon-big text-warning text-center">
+                                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" color="red" class="bi bi-file-slides" viewBox="0 0 16 16">
+                                               <path d="M5 4a.5.5 0 0 0-.496.438l-.5 4A.5.5 0 0 0 4.5 9h3v2.016c-.863.055-1.5.251-1.5.484 0 .276.895.5 2 .5s2-.224 2-.5c0-.233-.637-.429-1.5-.484V9h3a.5.5 0 0 0 .496-.562l-.5-4A.5.5 0 0 0 11 4H5zm2 3.78V5.22c0-.096.106-.156.19-.106l2.13 1.279a.125.125 0 0 1 0 .214l-2.13 1.28A.125.125 0 0 1 7 7.778z"/>
+                                               <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
+                                             </svg>
+                                           </div>
+                                       </div>
+                                       <div class="col-6 d-flex justify-content-center align-items-center">
+                                           <div class="numbers">
+                                               <p>{{file.fileName}}</p>
+                                              
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </a>
+                     </div>
+                     </div>
+                  
+               
+               </div>
+           </div>
+           
+           
+       </div>
+         <div class="tab-content" id="pills-tabContent" *ngFor="let file of files | async">
+           <div class="tab-pane fade active show" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+               <div class="row"  >
+                   <div class="col-lg-4 col-sm-6">
+                     <div *ngIf="file.fileType == 'application/pdf'">
+                       <a class="member-item"(click)="onDownloadFile(file.id)"  style="cursor: pointer;">
+                         {{ filename }}            
+                      
+                           <div class="card mb-2 mb-md-5 py-3">
+                               <div class="content">
+                                   <div class="row">
+                                       <div class="col-6 d-flex justify-content-center align-items-center">
+                                           <div class="icon-big text-warning text-center">
+                                             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" color="green" fill="currentColor" class="bi bi-filetype-pdf" viewBox="0 0 16 16">
+                                               <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/>
+                                             </svg>
+                                           </div>
+                                       </div>
+                                       <div class="col-6 d-flex justify-content-center align-items-center">
+                                           <div class="numbers">
+                                               <p>{{file.fileName}}</p>
+                                              
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </a>
+                     </div>
+                     </div>
+                  
+               
+               </div>
+           </div>
+        
+           
+       </div>
+     </div>
+   </div>
+   </div>
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <br>
+ 
+         <div  class="js-upload-finished">
+           <h3>Processed files</h3>
+           <div *ngFor="let filename of filenames" class="list-group">
+             <a (click)="onDownloadFile(filename)" class="list-group-item list-group-item-success" style="cursor: pointer;">
+               {{ filename }}            
+               <a class="alert-success float-right">Download</a>
+             </a><br>
+           </div>
+         </div>
+   
+       </div>
+     </div>
+       </div>
+         
+       </div>
+       </div>
+       </div>

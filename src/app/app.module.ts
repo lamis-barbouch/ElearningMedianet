@@ -90,6 +90,8 @@ import { ReclamUserComponent } from './reclam-user/reclam-user.component';
 import { HomeStudentComponent } from './home-student/home-student.component';
 import { DetailsFormationComponent } from './details-formation/details-formation.component';
 import { FormationApprenantComponent } from './formation-apprenant/formation-apprenant.component';
+import { CoursApprenantComponent } from './cours-apprenant/cours-apprenant.component';
+import { ResulttComponent } from './resultt/resultt.component';
 
 
 @NgModule({
@@ -153,6 +155,8 @@ import { FormationApprenantComponent } from './formation-apprenant/formation-app
     HomeStudentComponent,
     DetailsFormationComponent,
     FormationApprenantComponent,
+    CoursApprenantComponent,
+    ResulttComponent,
     
   ],
   entryComponents:[DialogExampleComponent],

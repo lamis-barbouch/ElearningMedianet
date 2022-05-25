@@ -14,7 +14,6 @@ export class StudentHomeComponent implements OnInit {
   public categories = [];
   public serverQuizzes = [];
 
-  /* --This is For Locally Process by Category-- */
   public quizzes = [];
 
   constructor(

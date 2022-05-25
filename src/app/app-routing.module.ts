@@ -44,6 +44,8 @@ import { ReclamUserComponent } from './reclam-user/reclam-user.component';
 import { HomeStudentComponent } from './home-student/home-student.component';
 import { FormationApprenantComponent } from './formation-apprenant/formation-apprenant.component';
 import { DetailsFormationComponent } from './details-formation/details-formation.component';
+import { CoursApprenantComponent } from './cours-apprenant/cours-apprenant.component';
+import { ResulttComponent } from './resultt/resultt.component';
 
 
 const routes: Routes = [
@@ -108,9 +110,11 @@ const routes: Routes = [
     path: 'student',
     component: StudentDashboardComponent,
     children: [
+      {path:'quiz-result-sheet/:quizId/:title',component:ResulttComponent},
+      {path:'cours',component:CoursApprenantComponent},
       {path:'formations',component:FormationApprenantComponent},
       {path:'detailFormation/:idFormation',component:DetailsFormationComponent},
-      { path: '', component: StudentHomeComponent },
+      { path: 'quizs', component: StudentHomeComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'find-quiz', component: SearchQuizComponent },
       {path:'home',component:HomeStudentComponent},
