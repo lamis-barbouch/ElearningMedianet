@@ -88,6 +88,8 @@ import { MSubjectByLikesComponent } from './msubject-by-likes/msubject-by-likes.
 import { ForumUserComponent } from './forum-user/forum-user.component';
 import { ReclamUserComponent } from './reclam-user/reclam-user.component';
 import { HomeStudentComponent } from './home-student/home-student.component';
+import { DetailsFormationComponent } from './details-formation/details-formation.component';
+import { FormationApprenantComponent } from './formation-apprenant/formation-apprenant.component';
 
 
 @NgModule({
@@ -149,6 +151,8 @@ import { HomeStudentComponent } from './home-student/home-student.component';
     ForumUserComponent,
     ReclamUserComponent,
     HomeStudentComponent,
+    DetailsFormationComponent,
+    FormationApprenantComponent,
     
   ],
   entryComponents:[DialogExampleComponent],

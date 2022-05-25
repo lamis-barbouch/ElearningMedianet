@@ -208,79 +208,43 @@
                                                 <div class="card-header py-3">
                                                     <h6 class="m-0 font-weight-bold text-primary">Maintenant</h6>
                                                 </div>
-                                                <div class="card-body" position:center>
-                                                    <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/live-stream-logo-design-template-734b190682052e1a5f76a413c7f751ba_screen.jpg?ts=1589561822" class="rounded-circle" style="width: 150px;"
-                                                    alt="Avatar"  />
+                                                <div  class="card-body"   position:center  >
+                                                    <img  src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/live-stream-logo-design-template-734b190682052e1a5f76a413c7f751ba_screen.jpg?ts=1589561822" class="rounded-circle" style="width: 150px;"
+                                                    alt="Avatar"  (click)="openChat();"/>
                                                       <b>&nbsp;&nbsp; Rejoignez-nous Maintenant</b> 
                                                 </div>
                                             </div>
                 
                                             <!-- Color System -->
-                                            <div class="row">
-                                                <div class="col-lg-6 mb-4">
-                                                    <div class="card bg-primary text-white shadow">
-                                                        <div class="card-body">
-                                                            Primary
-                                                            <div class="text-white-50 small">#4e73df</div>
+                                            
+                                            <div class="card shadow mb-4">
+                                                <div class="card-header py-3">
+                                                    <h6 class="m-0 font-weight-bold text-primary">Forum</h6>
+                                                </div>
+                                             
+                                                <div class="card mb-2"  *ngFor="let forum of forums | async">
+                                                    <div class="card-body p-2 p-sm-3">
+                                                        <div class="media forum-item">
+                                                            <a href="#" data-toggle="collapse" data-target=".forum-content"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="mr-3 rounded-circle" width="50" alt="User" /></a>
+                                                            <div class="media-body">
+                                                                <h6><a href="#" data-toggle="collapse" data-target=".forum-content" class="text-body">{{forum.title}}</a></h6>
+                                                                <p class="text-secondary">
+                                                                    {{forum.subject}}
+                                                                </p>
+                                                            </div>
+                                                            <div class="text-muted small text-center align-self-center">
+                                                                <span class="d-none d-sm-inline-block"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heartbreak" viewBox="0 0 16 16">
+                                                                    <path fill-rule="evenodd" d="M8.867 14.41c13.308-9.322 4.79-16.563.064-13.824L7 3l1.5 4-2 3L8 15a38.094 38.094 0 0 0 .867-.59Zm-.303-1.01c6.164-4.4 6.91-7.982 6.22-9.921C14.031 1.37 11.447.42 9.587 1.368L8.136 3.18l1.3 3.468a1 1 0 0 1-.104.906l-1.739 2.608.971 3.237Zm-1.25 1.137a36.027 36.027 0 0 1-1.522-1.116C-5.077 4.97 1.842-1.472 6.454.293c.314.12.618.279.904.477L5.5 3 7 7l-1.5 3 1.815 4.537Zm-2.3-3.06C.895 7.797.597 4.875 1.308 3.248c.756-1.73 2.768-2.577 4.456-2.127L4.732 2.36a1 1 0 0 0-.168.991L5.91 6.943l-1.305 2.61a1 1 0 0 0-.034.818l.442 1.106Z"/>
+                                                                  </svg>{{forum.number_disLikesSubject}}</span>
+                                                                  &nbsp;&nbsp;&nbsp;
+                                                                <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                                                                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                                                                  </svg> {{forum.number_LikesSubject}}</span>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-6 mb-4">
-                                                    <div class="card bg-success text-white shadow">
-                                                        <div class="card-body">
-                                                            Success
-                                                            <div class="text-white-50 small">#1cc88a</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 mb-4">
-                                                    <div class="card bg-info text-white shadow">
-                                                        <div class="card-body">
-                                                            Info
-                                                            <div class="text-white-50 small">#36b9cc</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 mb-4">
-                                                    <div class="card bg-warning text-white shadow">
-                                                        <div class="card-body">
-                                                            Warning
-                                                            <div class="text-white-50 small">#f6c23e</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 mb-4">
-                                                    <div class="card bg-danger text-white shadow">
-                                                        <div class="card-body">
-                                                            Danger
-                                                            <div class="text-white-50 small">#e74a3b</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 mb-4">
-                                                    <div class="card bg-secondary text-white shadow">
-                                                        <div class="card-body">
-                                                            Secondary
-                                                            <div class="text-white-50 small">#858796</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 mb-4">
-                                                    <div class="card bg-light text-black shadow">
-                                                        <div class="card-body">
-                                                            Light
-                                                            <div class="text-black-50 small">#f8f9fc</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 mb-4">
-                                                    <div class="card bg-dark text-white shadow">
-                                                        <div class="card-body">
-                                                            Dark
-                                                            <div class="text-white-50 small">#5a5c69</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+
                                             </div>
                 
                                         </div>
@@ -288,7 +252,7 @@
                                         
                                         <div class="col-lg-6 mb-4">
                                            
-                                            <div class="card shadow mb-2-fluid" width="" >
+                                            <div class="card shadow mb-4"width="" >
                                                 <div class="card-header py-3">
                                                     <h6 class="m-0 font-weight-bold text-primary">Chat</h6>
                                                 </div>

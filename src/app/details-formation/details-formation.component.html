@@ -88,67 +88,69 @@
 <div class="container-fluid">
     <div class="row">
 
-        <div class="col-md-8">
-            <h1>Prière de respecter le temps</h1>
 
-            <mat-card *ngFor="let question of questionList,let i=index" class="m-3">
-
-                <mat-card-header>
-                    <p> <b> Q {{i+1}})</b></p> <span class="ml-2" [innerHTML]="question.content"></span>
-                </mat-card-header>
-                <mat-divider></mat-divider>
-
-                <mat-card-content>
-                    <mat-radio-group [(ngModel)]="question.givenAnswer">
-                        <div class="row p-2">
-                            <div class="col-md-5 ml-5">
-                                <mat-radio-button [value]="question.option1">{{question.option1}}</mat-radio-button>
-                            </div>
-                            <div class="col-md-5 ml-5">
-                                <mat-radio-button [value]="question.option2">{{question.option2}}</mat-radio-button>
-                            </div>
-                            <div class="col-md-5 ml-5">
-                                <mat-radio-button [value]="question.option3">{{question.option3}}</mat-radio-button>
-                            </div>
-                            <div class="col-md-5 ml-5">
-                                <mat-radio-button [value]="question.option4">{{question.option4}}</mat-radio-button>
-                            </div>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!------ Include the above in your HEAD tag ---------->
+        
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap" rel="stylesheet">
+            <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+            <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+            <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"><div class="pd-wrap">
+                <div class="container" *ngIf="formation">
+                    <div class="heading-section">
+                        <h2>{{formation.titreFormation}}</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="../../assets/img/banner-home1.png">
                         </div>
-                    </mat-radio-group>
-                </mat-card-content>
-            </mat-card>
-
-            <div class="row text-center">
-                <div class="col-md-12">
-                    <button mat-raised-button color="primary" (click)="submitExam()">Submit Quiz</button>
+                        <div class="col-md-6">
+                            <div class="product-dtl">
+                                <div class="product-info">
+                                    <div class="product-price-discount"><h2>Prix</h2></div>
+                                    <div class="product-price-discount"><span>{{formation.prixFormation}} DT</span></div>
+                                </div>
+                                <p>{{formation.descriptionFormation}}</p>
+                                
+                                <br>
+                                <div class="product-count">
+                                    
+                                    <button style="font-size:24px" type="button" class="btn btn-outline-success" (click)="initializePayment(formation.prixFormation)">Participer</button>	    
+                                    &nbsp; <button style="font-size:24px" type="button" class="btn btn-outline-danger"><i class="fa fa-heart fa-2x" style="color:rgb(243, 183, 183)" style="font-size:25px"></i>&nbsp;&nbsp; J'aime</button>    			</div>
+                            </div>
+                            
+                                    
+                        
+        
+                        </div>
+                    </div>
+                    <div class="product-info-tabs">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                              <li class="nav-item">
+                                <a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Description</a>
+                              </li>
+                              
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                              <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+                                {{formation.descriptiondetailleFormation}}
+                              </div>
+                          
+                        </div>
+                    </div>
                 </div>
             </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="	sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        
+        <br><br><br> <br>
+        <br><br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br>
 
-        </div>
 
-        <div class="col-md-2">
-            <mat-card>
-                <mat-card-header>
-                    <div mat-card-avatar class="example-header-image"></div>
-                    <mat-card-title class="mt-2">Timer</mat-card-title>
-                  
-                  </mat-card-header>
-
-                <mat-card-content>
-                    
-
-                    <mat-progress-spinner
-                    style="margin: auto"
-                    mode="determinate"
-                    [value]="(time/quizTime)*100">
-                </mat-progress-spinner>
-                <br>
-                <h2 class="text-center"><i>{{getFormatedTime()}}</i></h2>
-               
-                </mat-card-content>
-            </mat-card>
-        </div>
 
     </div>
-</div>
-</div>
+    </div>
+    </div>

@@ -29,7 +29,6 @@ import { AdminHomeComponent } from './components/admin/admin-home/admin-home.com
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { FormationsComponent } from './components/admin/formations/formations.component';
 import { JitsiComponent } from './jitsi/jitsi.component';
-import { DetailsFormationsComponent } from './components/admin/details-formations/details-formations.component';
 import { FormateursComponent } from './formateurs/formateurs.component';
 import { ForumAdminComponent } from './forum-admin/forum-admin.component';
 import { DictionnaireForumComponent } from './dictionnaire-forum/dictionnaire-forum.component';
@@ -43,6 +42,8 @@ import { MSubjectByLikesComponent } from './msubject-by-likes/msubject-by-likes.
 import { ForumUserComponent } from './forum-user/forum-user.component';
 import { ReclamUserComponent } from './reclam-user/reclam-user.component';
 import { HomeStudentComponent } from './home-student/home-student.component';
+import { FormationApprenantComponent } from './formation-apprenant/formation-apprenant.component';
+import { DetailsFormationComponent } from './details-formation/details-formation.component';
 
 
 const routes: Routes = [
@@ -54,7 +55,7 @@ const routes: Routes = [
   { path: 'registration', component: RegistrationComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent, pathMatch: 'full' },
   { path: '401', component: UnauthorizedComponent, pathMatch: 'full' },
-  {path:'detailFormation/:idFormation',component: DetailsFormationsComponent},
+  {path:'detailFormation/:idFormation',component:DetailsFormationComponent},
 {path:'formateurs',component:FormateursComponent},
 {path:'forumAdmin',component:ForumAdminComponent},
 {path:'dictionnaireForum',component:DictionnaireForumComponent},
@@ -107,6 +108,8 @@ const routes: Routes = [
     path: 'student',
     component: StudentDashboardComponent,
     children: [
+      {path:'formations',component:FormationApprenantComponent},
+      {path:'detailFormation/:idFormation',component:DetailsFormationComponent},
       { path: '', component: StudentHomeComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'find-quiz', component: SearchQuizComponent },
