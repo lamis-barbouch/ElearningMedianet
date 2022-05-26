@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { QuizService } from 'src/app/services/quiz/quiz.service';
 import Swal from 'sweetalert2';
 import jsPDF from 'jspdf';
@@ -8,6 +8,7 @@ import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 import htmlToPdfmake from 'html-to-pdfmake';
+import { UserAuthService } from 'src/app/_services/user-auth.service';
 interface Result {
   username: string;
   submitQuizId: number;
@@ -32,8 +33,17 @@ export class QuizResultSheetComponent implements OnInit {
   constructor(
     private snackBar: MatSnackBar,
     private activeRoute: ActivatedRoute,
-    private quizService: QuizService
+    private quizService: QuizService,
+    private userAuthService: UserAuthService,
+    private router: Router,
   ) {}
+  public logout(){
+    localStorage.clear();
+    this.userAuthService.clear();
+    
+    this.router.navigate(['/']);
+  
+   }
   @ViewChild('pdfTable') pdfTable: ElementRef;
    
   public downloadAsPDF() {

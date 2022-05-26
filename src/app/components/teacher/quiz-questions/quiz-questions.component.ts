@@ -4,9 +4,10 @@ import {
   MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { QuestionService } from 'src/app/services/question/question.service';
 import { QuizService } from 'src/app/services/quiz/quiz.service';
+import { UserAuthService } from 'src/app/_services/user-auth.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -26,9 +27,20 @@ export class QuizQuestionsComponent implements OnInit {
     private snackBar: MatSnackBar,
     private activeRoute: ActivatedRoute,
     private quizService: QuizService,
-    private questionService: QuestionService
+    private questionService: QuestionService,
+    private userAuthService: UserAuthService,
+    private router: Router,
+    
   ) {}
 
+  public logout(){
+    localStorage.clear();
+    this.userAuthService.clear();
+    
+    this.router.navigate(['/']);
+  
+   }
+      
   ngOnInit(): void {
     this.quizId = this.activeRoute.snapshot.params.quizId;
     this.quizTitle = this.activeRoute.snapshot.params.title;

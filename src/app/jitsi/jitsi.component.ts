@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserAuthService } from '../_services/user-auth.service';
 declare var JitsiMeetExternalAPI: any;
 
 @Component({
@@ -20,9 +21,10 @@ export class JitsiComponent implements OnInit, AfterViewInit {
   isVideoMuted = false;
 
   constructor(
-      private router: Router
+      private router: Router,private userAuthService: UserAuthService
   ) { }
 
+  
   ngOnInit(): void {
       this.room = 'Medianet'; // set your room name
       this.user = {
@@ -100,10 +102,11 @@ export class JitsiComponent implements OnInit, AfterViewInit {
   }
 
   public logout(){
+    localStorage.clear();
+    this.userAuthService.clear();
     
-    this.router.navigate(['/login']);
-    
- 
+    this.router.navigate(['/']);
+  
    }
 
 

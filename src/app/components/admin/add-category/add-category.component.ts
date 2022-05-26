@@ -3,6 +3,7 @@ import { CategoryService } from 'src/app/services/category/category.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { UserAuthService } from 'src/app/_services/user-auth.service';
 
 @Component({
   selector: 'app-add-category',
@@ -16,12 +17,21 @@ export class AddCategoryComponent implements OnInit {
   };
 
   constructor(
+    private userAuthService: UserAuthService,
     private categoryService: CategoryService,
     private snackBar: MatSnackBar,
     private router: Router
   ) {}
 
   ngOnInit(): void {}
+  public logout(){
+    localStorage.clear();
+    this.userAuthService.clear();
+    
+    this.router.navigate(['/']);
+    
+ 
+   }
   /* ------------------------------------------------------------------------------------------------- */
   categorySubmit() {
     if (

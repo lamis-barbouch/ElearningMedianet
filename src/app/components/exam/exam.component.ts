@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { QuizService } from 'src/app/services/quiz/quiz.service';
 import { LoginService } from 'src/app/services/login/login.service';
 import Swal from 'sweetalert2';
+import { UserAuthService } from 'src/app/_services/user-auth.service';
 
 interface Question {
   questionId: number;
@@ -53,7 +54,8 @@ export class ExamComponent implements OnInit {
     private quizService: QuizService,
     private loginService: LoginService,
     private router: Router,
-    private locationStrategy: LocationStrategy
+    private locationStrategy: LocationStrategy,
+    private userAuthService: UserAuthService,
   ) {}
 
   
@@ -79,10 +81,11 @@ export class ExamComponent implements OnInit {
   }
 
   public logout(){
+    localStorage.clear();
+    this.userAuthService.clear();
     
-    this.router.navigate(['/login']);
-    
- 
+    this.router.navigate(['/']);
+  
    }
   /* ------------------------------------------------------------ */
   preventBrowserBackButton() {

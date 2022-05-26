@@ -10,6 +10,7 @@ import { AjouterFormationComponent } from 'src/app/ajouter-formation/ajouter-for
 import { Reclam } from 'src/models/reclam';
 import { ReclamServiceService } from 'src/app/_services/reclam-service.service';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { UserAuthService } from 'src/app/_services/user-auth.service';
 
 
 
@@ -30,14 +31,18 @@ export class TeacherHomeComponent implements OnInit {
  showMsg: boolean = false;
 
 
-  constructor(public reclService:ReclamServiceService, public dialog:MatDialog,private formationService:FormationService,private router:Router) { }
+  constructor(public reclService:ReclamServiceService, 
+    public dialog:MatDialog,private formationService:FormationService,
+    private router:Router,private userAuthService: UserAuthService) { }
 
+  
   public Editor = ClassicEditor;
 
   newFormation():void{
     this.submitted=false;
     this.reclam=new Reclam();
   }
+  
   save() {
     this.reclService.createReclam(this.reclam).subscribe(data => {
       console.log(data)
@@ -75,11 +80,11 @@ export class TeacherHomeComponent implements OnInit {
   }
 
   public logout(){
+    localStorage.clear();
+    this.userAuthService.clear();
     
-    this.router.navigate(['/login']);
-    
- 
+    this.router.navigate(['/']);
+  
    }
-
 }
 

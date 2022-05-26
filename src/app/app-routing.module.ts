@@ -46,21 +46,23 @@ import { FormationApprenantComponent } from './formation-apprenant/formation-app
 import { DetailsFormationComponent } from './details-formation/details-formation.component';
 import { CoursApprenantComponent } from './cours-apprenant/cours-apprenant.component';
 import { ResulttComponent } from './resultt/resultt.component';
+import { TeacherGuard } from './guard/teacher/teacher.guard';
+import { StudentGuard } from './guard/student/student.guard';
 
 
 const routes: Routes = [
   {path:'reclam',component:ReclamUserComponent},
   {path:'blog',component:ForumUserComponent},
   {path:'SubjectRate',component:MSubjectByLikesComponent},
-  {path:'reclamAdmin',component:ReclamAdminComponent},
+  {path:'reclamAdmin',component:ReclamAdminComponent,canActivate: [AdminGuard],},
   { path: '', component: WelcomeComponent, pathMatch: 'full' },
   { path: 'registration', component: RegistrationComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent, pathMatch: 'full' },
   { path: '401', component: UnauthorizedComponent, pathMatch: 'full' },
   {path:'detailFormation/:idFormation',component:DetailsFormationComponent},
-{path:'formateurs',component:FormateursComponent},
-{path:'forumAdmin',component:ForumAdminComponent},
-{path:'dictionnaireForum',component:DictionnaireForumComponent},
+{path:'formateurs',component:FormateursComponent,canActivate: [AdminGuard],},
+{path:'forumAdmin',component:ForumAdminComponent,canActivate: [AdminGuard],},
+{path:'dictionnaireForum',component:DictionnaireForumComponent,canActivate: [AdminGuard],},
 {path:'cours',component:RessourcesComponent},
 {path:'meet',component:JitsiComponent},
 {path:'thank-you',component:ThankYouComponent},
@@ -81,7 +83,7 @@ const routes: Routes = [
   },
   {
     path: 'formateur',
-    component: TeacherDashboardComponent,
+    component: TeacherDashboardComponent,canActivate: [TeacherGuard],
     children: [
       { path: '', component: TeacherHomeComponent },
       { path: 'profile', component: ProfileComponent },
@@ -108,7 +110,7 @@ const routes: Routes = [
   },
   {
     path: 'student',
-    component: StudentDashboardComponent,
+    component: StudentDashboardComponent,canActivate: [StudentGuard],
     children: [
       {path:'quiz-result-sheet/:quizId/:title',component:ResulttComponent},
       {path:'cours',component:CoursApprenantComponent},

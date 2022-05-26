@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Formation } from 'src/models/formation';
 import { User } from 'src/models/user';
+import Swal from 'sweetalert2';
 import { FormationService } from '../_services/formation.service';
 import { UserAuthService } from '../_services/user-auth.service';
 
@@ -18,7 +19,8 @@ export class GestionFormationsComponent implements OnInit {
   formation:Formation = new Formation();
   showMsg: boolean = false;
 
-  constructor(private userAuthService: UserAuthService,
+  constructor(
+    private userAuthService: UserAuthService,
     private router: Router,
     public formationService: FormationService) { }
 
@@ -50,16 +52,22 @@ export class GestionFormationsComponent implements OnInit {
       data => {
         console.log(data);
         this.reloadData();
+        Swal.fire({
+          icon:'success',
+         title: "Formation Supprimée avec succés"
+         } );
       },
+     
       error => console.log(error));
 }
 
-  public logout(){
-    this.userAuthService.clear();
-    this.router.navigate(['/login']);
-    
- 
-   }
+public logout(){
+  localStorage.clear();
+  this.userAuthService.clear();
+  
+  this.router.navigate(['/']);
+
+ }
     
 
 }

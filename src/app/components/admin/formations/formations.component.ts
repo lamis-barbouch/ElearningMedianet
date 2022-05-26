@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogExampleComponent } from 'src/app/dialog-example/dialog-example.component';
 import { GestionFormationsComponent } from 'src/app/gestion-formations/gestion-formations.component';
 import { AjouterFormationComponent } from 'src/app/ajouter-formation/ajouter-formation.component';
+import { UserAuthService } from 'src/app/_services/user-auth.service';
 
 @Component({
   selector: 'app-formations',
@@ -17,7 +18,8 @@ export class FormationsComponent implements OnInit {
 
   formations: Observable<Formation[]>;
   cin=6;
-  constructor(public dialog:MatDialog,private formationService:FormationService,private router:Router) { }
+  constructor(public dialog:MatDialog,private formationService:FormationService,
+    private router:Router,private userAuthService: UserAuthService) { }
 
   openDialog(){
     this.dialog.open(DialogExampleComponent);
@@ -40,11 +42,12 @@ export class FormationsComponent implements OnInit {
     this.router.navigate(['detailFormation',idFormation])
   }
 
-  public logout(){
-    
-    this.router.navigate(['/login']);
-    
- 
-   }
+  
+public logout(){
+  localStorage.clear();
+  this.userAuthService.clear();
+  
+  this.router.navigate(['/']);
 
+ }
 }

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import * as saveAs from 'file-saver';
 import { Observable } from 'rxjs';
 import { FileService } from '../_services/file.service';
+import { UserAuthService } from '../_services/user-auth.service';
 
 @Component({
   selector: 'app-ressources',
@@ -16,11 +17,18 @@ export class RessourcesComponent implements OnInit {
   filenames: string[] = [];
   fileStatus = { status: '', requestType: '', percent: 0 };
 
-  constructor(private fileService: FileService,private router: Router) { }
+  constructor(private fileService: FileService,private router: Router,private userAuthService: UserAuthService) { }
 
   ngOnInit() {
     this.reloadData();
   }
+  public logout(){
+    localStorage.clear();
+    this.userAuthService.clear();
+    
+    this.router.navigate(['/']);
+  
+   }
 
   reloadData() {
     this.files = this.fileService.getFilesList();

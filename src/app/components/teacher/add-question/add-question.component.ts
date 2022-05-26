@@ -7,6 +7,7 @@ import {
 import { ActivatedRoute, Router } from '@angular/router';
 import { QuestionService } from 'src/app/services/question/question.service';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { UserAuthService } from 'src/app/_services/user-auth.service';
 
 @Component({
   selector: 'app-add-question',
@@ -41,8 +42,17 @@ export class AddQuestionComponent implements OnInit {
     private snackBar: MatSnackBar,
     private activeRoute: ActivatedRoute,
     private questionService: QuestionService,
-    private router: Router
+    private router: Router,
+    private userAuthService: UserAuthService,
   ) {}
+
+  public logout(){
+    localStorage.clear();
+    this.userAuthService.clear();
+    
+    this.router.navigate(['/']);
+  
+   }
 
   ngOnInit(): void {
     this.question.quizId = this.activeRoute.snapshot.params.quizId;

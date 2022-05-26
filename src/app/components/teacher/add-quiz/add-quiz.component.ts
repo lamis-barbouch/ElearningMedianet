@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { CategoryService } from 'src/app/services/category/category.service';
 import { LoginService } from 'src/app/services/login/login.service';
 import { QuizService } from 'src/app/services/quiz/quiz.service';
+import { UserAuthService } from 'src/app/_services/user-auth.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -33,9 +34,18 @@ export class AddQuizComponent implements OnInit {
     private loginService: LoginService,
     private categoryService: CategoryService,
     private router: Router,
-    private quizService: QuizService
+    private quizService: QuizService,
+    private userAuthService: UserAuthService,
   ) {}
 
+  public logout(){
+    localStorage.clear();
+    this.userAuthService.clear();
+    
+    this.router.navigate(['/']);
+  
+   }
+      
   ngOnInit(): void {
     /* --Backend API For All Category-- */
     this.categoryService.getAllCategory().subscribe(

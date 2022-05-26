@@ -56,9 +56,10 @@ export class HomeStudentComponent implements OnInit {
     }
   
   public logout(){
+    localStorage.clear();
     this.userAuthService.clear();
     
-    this.router.navigate(['/login']);
+    this.router.navigate(['/']);
     
  
    }

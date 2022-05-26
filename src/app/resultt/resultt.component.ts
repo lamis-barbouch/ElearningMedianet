@@ -8,6 +8,7 @@ import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 import htmlToPdfmake from 'html-to-pdfmake';
+import { UserAuthService } from '../_services/user-auth.service';
 interface Result {
   username: string;
   submitQuizId: number;
@@ -34,7 +35,8 @@ export class ResulttComponent implements OnInit {
     private snackBar: MatSnackBar,
     private activeRoute: ActivatedRoute,
     private quizService: QuizService,
-    private router: Router
+    private router: Router,
+    private userAuthService: UserAuthService,
   ) {}
   @ViewChild('pdfTable') pdfTable: ElementRef;
    
@@ -70,10 +72,11 @@ export class ResulttComponent implements OnInit {
     );
   }
   public logout(){
+    localStorage.clear();
+    this.userAuthService.clear();
     
-    this.router.navigate(['/login']);
-    
- 
+    this.router.navigate(['/']);
+  
    }
 
   public generatePdf() {

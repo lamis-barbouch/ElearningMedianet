@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormationService } from 'src/app/_services/formation.service';
+import { UserAuthService } from 'src/app/_services/user-auth.service';
 import { Formation } from 'src/models/formation';
 import { User } from 'src/models/user';
 
@@ -16,13 +17,15 @@ export class DetailsFormationsComponent implements OnInit {
   cinUser:number;
   value:null;
   constructor(private route: ActivatedRoute,private router: Router,
-    private formationService:FormationService) { }
-    public logout(){
-    
-      this.router.navigate(['/login']);
-      
-   
-     }
+    private formationService:FormationService,private userAuthService: UserAuthService,) { }
+  
+public logout(){
+  localStorage.clear();
+  this.userAuthService.clear();
+  
+  this.router.navigate(['/']);
+
+ }
 
     ngOnInit(){
       this.formation=new Formation();

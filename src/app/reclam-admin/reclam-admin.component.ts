@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Reclam } from 'src/models/reclam';
 import { ReponseReclamComponent } from '../reponse-reclam/reponse-reclam.component';
 import { ReclamServiceService } from '../_services/reclam-service.service';
+import { UserAuthService } from '../_services/user-auth.service';
 
 @Component({
   selector: 'app-reclam-admin',
@@ -15,7 +16,8 @@ export class ReclamAdminComponent implements OnInit {
 
   reclams:Observable<Reclam[]>;
 
-  constructor(public dialog:MatDialog,private reclamService:ReclamServiceService,private router:Router) { }
+  constructor(public dialog:MatDialog,private reclamService:ReclamServiceService,
+    private router:Router,private userAuthService: UserAuthService) { }
 
   ngOnInit() {
     this.reloadData();
@@ -29,10 +31,11 @@ export class ReclamAdminComponent implements OnInit {
   }
 
   public logout(){
+    localStorage.clear();
+    this.userAuthService.clear();
     
-    this.router.navigate(['/login']);
-    
- 
+    this.router.navigate(['/']);
+  
    }
 
 }

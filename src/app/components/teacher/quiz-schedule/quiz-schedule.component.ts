@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { QuizService } from 'src/app/services/quiz/quiz.service';
+import { UserAuthService } from 'src/app/_services/user-auth.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -29,8 +30,16 @@ export class QuizScheduleComponent implements OnInit {
     private snackBar: MatSnackBar,
     private activeRoute: ActivatedRoute,
     private quizService: QuizService,
-    private router: Router
+    private router: Router,
+    private userAuthService: UserAuthService,
   ) {}
+  public logout(){
+    localStorage.clear();
+    this.userAuthService.clear();
+    
+    this.router.navigate(['/']);
+  
+   }
 
   ngOnInit(): void {
     this.quizSchedule.quizId = this.activeRoute.snapshot.params.quizId;

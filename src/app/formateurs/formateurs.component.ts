@@ -54,12 +54,13 @@ export class FormateursComponent implements OnInit {
 formateurDetails(cinUser:number){
   this.router.navigate(['details',cinUser])
 }
-  public logout(){
-    this.userAuthService.clear();
-    this.router.navigate(['/login']);
-    
- 
-   }
+public logout(){
+  localStorage.clear();
+  this.userAuthService.clear();
+  
+  this.router.navigate(['/']);
+
+ }
     
 
 }

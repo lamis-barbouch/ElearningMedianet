@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Formation } from 'src/models/formation';
 import { User } from 'src/models/user';
+import Swal from 'sweetalert2';
 import { FormationService } from '../_services/formation.service';
 import { UserAuthService } from '../_services/user-auth.service';
 
@@ -33,6 +34,10 @@ export class AjouterFormationComponent implements OnInit {
       console.log(data)
       this.showMsg= true;
       this.formation = new Formation();
+      Swal.fire({
+        icon:'success',
+       title: "Formation ajouté avec succés"
+       } );
     }, 
     error => console.log(error));
   }
