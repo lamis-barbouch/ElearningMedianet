@@ -8,4 +8,5 @@ export class User {
     niveauEtudeApprenant: string;
     telephoneUser: string;
     specialitFormateur: string;
+    isEnabled:number;
 }

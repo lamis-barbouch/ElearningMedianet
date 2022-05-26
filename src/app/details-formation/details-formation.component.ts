@@ -24,7 +24,7 @@ export class DetailsFormationComponent implements OnInit {
       this.formation=new Formation();
   
       this.idFormation=this.route.snapshot.params['idFormation'];
-      this.cinUser=6;
+      this.cinUser=14;
       this.formationService.getFormationDetail(this.idFormation).subscribe(data => {
         console.log(data)
         this.formation = data;
@@ -39,7 +39,6 @@ export class DetailsFormationComponent implements OnInit {
         token: function (stripeToken: any) {
           console.log({stripeToken})
           alert('Stripe token generated!');
-           this.router.navigate(['getFormationDetail',Formation])
         }
       });
     
@@ -51,12 +50,6 @@ export class DetailsFormationComponent implements OnInit {
     }
     
     invokeStripe() {
-      this.formationService.participer(this.cinUser,this.idFormation,this.value).subscribe(
-           data => {
-             console.log(data);
-           },
-           error => console.log(error)
-        );
       if(!window.document.getElementById('stripe-script')) {
         const script = window.document.createElement("script");
         script.id = "stripe-script";
@@ -69,31 +62,29 @@ export class DetailsFormationComponent implements OnInit {
             token: function (stripeToken: any) {
               console.log(stripeToken)
               alert('Payment has been successfull!');
-             
             }
           });
         }
         window.document.body.appendChild(script);
-        this.router.navigate(['getFormationDetail',Formation])
       }
     }
+  
     getFormationDetail(idFormation:number){
       this.router.navigate(['getFormationDetail',Formation])
     }
 
-    //
+    
 
-    //participer(){
-     // this.gotoSuccessPage();
-     // this.formationService.participer(this.cinUser,this.idFormation,this.value).subscribe(
-     //   data => {
-     //     console.log(data);
-     //   },
-     //   error => console.log(error)
-     // );
+    participer(){
+      this.formationService.participer(this.cinUser,this.idFormation,this.value).subscribe(
+       data => {
+          console.log(data);
+       },
+       error => console.log(error)
+      );
       
    //   -->
-   // }
+    }
   gotoSuccessPage() {
     this.router.navigate(['/succesParticipeFormation']);
   }

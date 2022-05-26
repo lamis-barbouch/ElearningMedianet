@@ -19,6 +19,7 @@ export class UserService {
   )
   http: any;
   constructor(private httpclient: HttpClient,private userAuthService: UserAuthService) { }
+  
   public register(user:User):Observable<any> {
     return this.httpclient.post(`${this.baseUrl1}`,user);
   }

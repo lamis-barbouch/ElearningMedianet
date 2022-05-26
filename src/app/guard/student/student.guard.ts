@@ -8,12 +8,13 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { LoginService } from 'src/app/services/login/login.service';
+import { UserAuthService } from 'src/app/_services/user-auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StudentGuard implements CanActivate {
-  constructor(private loginService: LoginService, private router: Router) {}
+  constructor(private loginService: UserAuthService, private router: Router) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -24,17 +25,19 @@ export class StudentGuard implements CanActivate {
     | boolean
     | UrlTree {
     /* --Is Logged in or Not-- */
-    if (this.loginService.isLoggedIn()) {
-      /* --Is Authorized or Not-- */
-      if (this.loginService.getUserRole() == 'STUDENT') {
-        return true;
-      } else {
-        this.router.navigate(['401']);
-        return false;
-      }
+    const role= this.loginService.getRoleName();
+
+   if (this.loginService.isLoggedIn()) {
+    /* --Is Authorized or Not-- */
+    if (role === 'Apprenant') {
+      return true;
     } else {
-      this.router.navigate(['login']);
+      this.router.navigate(['401']);
       return false;
     }
+  } else {
+    this.router.navigate(['/']);
+    return false;
   }
+}
 }

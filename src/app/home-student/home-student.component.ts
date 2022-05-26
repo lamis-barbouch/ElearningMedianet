@@ -56,6 +56,7 @@ export class HomeStudentComponent implements OnInit {
     }
   
   public logout(){
+    this.userAuthService.clear();
     
     this.router.navigate(['/login']);
     
