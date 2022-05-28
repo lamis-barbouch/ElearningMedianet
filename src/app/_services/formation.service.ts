@@ -17,11 +17,17 @@ export class FormationService {
   private baseUrl7='http://localhost:8084/addFormation';
   private baseUrl8='http://localhost:8084/formationLists';
   private baseUrl9='http://localhost:8084/deleteFormation';
+  private baseUrl10='http://localhost:8084/affecterFormateurAFormation';
+  
+
+
   user:User;
   notif:Notification;
 
   constructor(private http: HttpClient) { }
 
+  affecter(idFormateur:number,idFormation:number,value: any){
+  return this.http.post(`${this.baseUrl10}/${idFormateur}/${idFormation}`,value);}
 
   getAllNotSeenNotif(cinUser:number):Observable<any>{
     return this.http.get(`${this.baseUrl5}/${cinUser}`);}

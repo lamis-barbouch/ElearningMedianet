@@ -1,3 +1,4 @@
+
 <header>
     <div >
         <!-- header top -->
@@ -15,32 +16,39 @@
                             <a data-toggle="tooltip" title="Expert" href="index.html"><img src="../../assets/img/site-logo.png" alt=""></a>
                         </div>
                     </div>
-                    <div class="col-md-4 col-12 text-center text-md-right">
+                    <div class="col-md-4 col-12 text-center text-md-right" >
                         <ul class="header-top-right mb-20"  >
                         
-                            <li class="cart"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  class="bi bi-bell-fill" viewBox="0 0 16 16">
+                            <li class="cart" *ngFor="let notif of notifications | async ;let i=index; " ><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  class="bi bi-bell-fill" viewBox="0 0 16 16">
                                 <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
-                              </svg><span class="total-cart">{{2}}</span></a>
-                                <ul class="hover-toggle">
-                                    <li>
-                                      <tr >
-
-                                        <td><br> </td>
-                                        <td><svg xmlns="http://www.w3.org/2000/svg" width="16"  height="16" fill="currentColor" color="green" class="bi bi-check-circle" viewBox="0 0 16 16" >
-                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                            <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
-                                          </svg> </td>
-                                        
-                                      </tr>
-                                      
-                                      
-                                      <tr><br></tr>
-                                    </li>
-                                   
+                              </svg><span class="total-cart">{{i+1}}</span></a>
+                              <ul class="hover-toggle">
+                                <li>
+                                  <tr  >
+                                    <td>{{notif.descriptionNotif}}<br> </td>
+                                    <td><svg xmlns="http://www.w3.org/2000/svg" width="16" (click)="seen(notif.idNotif)" height="16" fill="currentColor" color="green" class="bi bi-check-circle" viewBox="0 0 16 16" >
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                        <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+                                      </svg> </td>
+                                    
+                                  </tr>
+                                  
+                                  
+                                  <tr><br></tr>
+                                </li>
                                
-                                     
-                                </ul>
-                            </li>                            <li class="user"><a href="/formateur/profile"><i class="fas fa-user"></i></a> </li>
+                           
+                                 
+                            </ul>
+                            </li>                           
+                            <li class="user"><a href="/formateur/profile"><i class="fas fa-user"></i></a>
+                                <ul class="hover-toggle">
+                                    <button  type="button" class="btn btn-danger" (click)="logout()" >Logout</button>   
+
+                                    </ul>
+                            
+                                                                </li>
+                            
                          
                         </ul>
                     </div>
@@ -111,14 +119,14 @@
   
                                     </ul>
                                 </li>
-                                <li><a href="#">Formations <i class="fas fa-angle-down"></i></a>
+                                <li><a href="#">Quiz <i class="fas fa-angle-down"></i></a>
   
                                     <ul class="submenu">
-                                        <li><a routerLink="events" class="nav-link" routerLinkActive="active">Formations à venir </a></li>
+                                        <li><a href="/formateur/quizzes" class="nav-link" routerLinkActive="active">Liste des quizz </a></li>
                                         
-                                        <li><a routerLink="addevnt" class="nav-link" routerLinkActive="active">Mes formations</a></li>
+                                        <li><a href="/formateur/quiz" class="nav-link" routerLinkActive="active">Ajouter Quiz</a></li>
                                       </ul>
-                                      <li><a href="/formateur/quizzes">Quiz</a></li>
+                                     
                                 <li><a href="/blog">Blog</a></li>
                                 <li><a href="/reclam">Contactez-nous</a></li>
                                 

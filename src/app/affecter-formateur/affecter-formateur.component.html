@@ -1,0 +1,55 @@
+<mat-card>
+    <mat-card-header>
+        
+        
+        <mat-card-subtitle></mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div class="container">
+            <div class="container text-center">
+
+                <h1>Choisir formateur</h1>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 offset-md-2">
+
+                    <form (ngSubmit)="Submit()">
+
+                     
+
+                            <div class="col-md-6">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-label>Choisir un formateur</mat-label>
+                                    <mat-select [(ngModel)]="user.cinUser" name="cinUser">
+                                        <mat-option>--</mat-option>
+                                        <mat-option *ngFor="let user of users" [value]="user.cinUser">
+                                            {{user.nomUser}} {{user.prenomUser}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                </div>
+                        
+                      
+<br>
+              
+
+                        <div class="container text-center">
+                            <button type="submit" mat-raised-button>Enregistrer</button>
+                        </div>
+
+                    </form>
+
+                    <br>
+                </div>
+            </div>
+
+        </div>
+
+     
+    </mat-card-content>
+
+
+</mat-card>

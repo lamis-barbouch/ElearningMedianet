@@ -25,7 +25,7 @@ export class AddQuizComponent implements OnInit {
       categoryId: '',
     },
   };
-  categoryId=2;
+  categoryId=5;
 
   public categories = [];
 
@@ -63,7 +63,7 @@ export class AddQuizComponent implements OnInit {
     );
 
     /* --Username Assign-- */
-    this.quiz.createdBy = "Lamis";
+    this.quiz.createdBy = "lamis";
   }
 
   /* --------------------------------------------------------------------------- */
@@ -87,18 +87,18 @@ export class AddQuizComponent implements OnInit {
     ) {
       this.quizService.addQuiz(this.quiz,this.categoryId).subscribe(
         (response: any) => {
-          Swal.fire('Save Successfully!', 'Create a New Quiz', 'success');
-          //this.router.navigate(['teacher/quizzes']);
+          Swal.fire('Quiz Enregistré avec succés!', 'Nouveau Quiz', 'success');
+          this.router.navigate(['formateur/quizzes']);
         },
         (error) => {
           console.log(error);
-          this.snackBar.open('Fail Operation !  !  !  !', 'Close', {
+          this.snackBar.open('Erreur ', 'Fermer', {
             duration: 3000,
           });
         }
       );
     } else {
-      this.snackBar.open('Fill all the Fields Properly ! ! ! !', 'Close', {
+      this.snackBar.open('Veuillez remplir tous les champs ! ! ! !', 'Fermer', {
         duration: 3000,
       });
     }

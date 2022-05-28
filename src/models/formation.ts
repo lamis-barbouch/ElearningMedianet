@@ -1,3 +1,5 @@
+import { User } from "./user";
+
 export class Formation {
     idFormation: number;
     dateFormation:Date
@@ -6,6 +8,7 @@ export class Formation {
      prixFormation: number;
       titreFormation:string;
       descriptiondetailleFormation:string
+      user:User[];
 
 
 

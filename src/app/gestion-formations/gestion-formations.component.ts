@@ -6,6 +6,7 @@ import { User } from 'src/models/user';
 import Swal from 'sweetalert2';
 import { FormationService } from '../_services/formation.service';
 import { UserAuthService } from '../_services/user-auth.service';
+import { UserService } from '../_services/user.service';
 
 @Component({
   selector: 'app-gestion-formations',
@@ -18,13 +19,22 @@ export class GestionFormationsComponent implements OnInit {
   submitted = false;
   formation:Formation = new Formation();
   showMsg: boolean = false;
+  user:User;
+users: Observable<User[]>;
 
   constructor(
+    private userService:UserService,
     private userAuthService: UserAuthService,
     private router: Router,
     public formationService: FormationService) { }
 
   ngOnInit(): void {
+    this.userService.getFormateursList().subscribe(
+      (response: any) => {
+        this.users = response;
+      },
+      
+    );
      this.reloadData();
   }
   newFormation():void{

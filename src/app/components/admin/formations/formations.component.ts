@@ -8,6 +8,7 @@ import { DialogExampleComponent } from 'src/app/dialog-example/dialog-example.co
 import { GestionFormationsComponent } from 'src/app/gestion-formations/gestion-formations.component';
 import { AjouterFormationComponent } from 'src/app/ajouter-formation/ajouter-formation.component';
 import { UserAuthService } from 'src/app/_services/user-auth.service';
+import { AffecterFormateurComponent } from 'src/app/affecter-formateur/affecter-formateur.component';
 
 @Component({
   selector: 'app-formations',
@@ -30,6 +31,11 @@ export class FormationsComponent implements OnInit {
   openDialog2(){
     this.dialog.open(AjouterFormationComponent);
   }
+
+  openDialog5(){
+    this.dialog.open(AffecterFormateurComponent);
+  }
+  
   ngOnInit() {
     this.reloadData();
   }

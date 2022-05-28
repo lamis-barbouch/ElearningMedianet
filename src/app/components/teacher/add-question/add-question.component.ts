@@ -78,7 +78,7 @@ export class AddQuestionComponent implements OnInit {
       this.questionService.addQuestion(this.question, this.question.quizId).subscribe(
         (response: any) => {
           if (response.message == 'Save') {
-            this.snackBar.open('Successfully Save ! ! ! !', 'Close', {
+            this.snackBar.open('Enregistré avec succés ! ! ! !', 'Fermer', {
               duration: 3000,
               horizontalPosition: this.horizontalPosition,
               verticalPosition: this.verticalPosition,
@@ -93,13 +93,13 @@ export class AddQuestionComponent implements OnInit {
         },
         (error) => {
           console.log(error);
-          this.snackBar.open('Fail Operation !  !  !  !', 'Close', {
+          this.snackBar.open('Erreur !  !  !  !', 'Fermer', {
             duration: 3000,
           });
         }
       );
     } else {
-      this.snackBar.open('Fill all the Fields Properly ! ! ! !', 'Close', {
+      this.snackBar.open('Veuillez remplir tous les champs! ! ! !', 'Fermer', {
         duration: 3000,
       });
     }

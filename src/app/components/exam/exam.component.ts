@@ -23,9 +23,13 @@ interface Question {
   styleUrls: ['./exam.component.css'],
 })
 export class ExamComponent implements OnInit {
-  time=1000;
-  stopTime=2000;
-  quizTime=1000;
+  
+  public time: any=100;
+  public stopTime: any=0;
+  public quizTime: any=600;
+
+  
+
   public quizId: number;
   public quizTitle: string;
   public questions = [];
@@ -38,7 +42,7 @@ export class ExamComponent implements OnInit {
     description: '',
     numberOfQuestion: 0,
     maxMarks: 0,
-    quizTime: 100,
+    quizTime: 0,
     remainingTime: 0,
     submitQuestionDtoList: [],
   };
@@ -72,7 +76,7 @@ export class ExamComponent implements OnInit {
       (error: any) => {
         Swal.fire(
           'Get No Data ! ! ! !',
-          'There is an Error From Server',
+          'Erreur',
           'error'
         );
         console.log(error);
@@ -199,8 +203,8 @@ export class ExamComponent implements OnInit {
                 response.totalCorrectAnswer,
           ]);
           Swal.fire(
-            'Time Is Over!',
-            'Your Quiz Submit Successfully.',
+            'Temps révolu!',
+            'Votre Quiz a été soumis avec succès.',
             'success'
           );
 
@@ -216,13 +220,13 @@ export class ExamComponent implements OnInit {
         } else {
           Swal.fire({
             icon: 'error',
-            title: 'Oops Quiz Not Submit...',
-            text: 'Something went wrong!',
+            title: 'Oops Quiz Non Validé...',
+            text: 'Erreur!',
           });
         }
       },
       (error: any) => {
-        this.snackBar.open('Fail Operation !  !  !  !', 'Close', {
+        this.snackBar.open('Echec !  !  !  !', 'Fermer', {
           duration: 3000,
         });
       }

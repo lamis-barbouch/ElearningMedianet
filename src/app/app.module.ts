@@ -92,6 +92,7 @@ import { DetailsFormationComponent } from './details-formation/details-formation
 import { FormationApprenantComponent } from './formation-apprenant/formation-apprenant.component';
 import { CoursApprenantComponent } from './cours-apprenant/cours-apprenant.component';
 import { ResulttComponent } from './resultt/resultt.component';
+import { AffecterFormateurComponent } from './affecter-formateur/affecter-formateur.component';
 
 
 @NgModule({
@@ -157,6 +158,7 @@ import { ResulttComponent } from './resultt/resultt.component';
     FormationApprenantComponent,
     CoursApprenantComponent,
     ResulttComponent,
+    AffecterFormateurComponent,
     
   ],
   entryComponents:[DialogExampleComponent],

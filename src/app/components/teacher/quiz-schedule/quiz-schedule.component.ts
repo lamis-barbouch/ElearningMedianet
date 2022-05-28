@@ -59,17 +59,17 @@ export class QuizScheduleComponent implements OnInit {
       this.quizSchedule.date = new Date(this.ProcessDate).toDateString();
       this.quizService.setQuizSchedule(this.quizSchedule).subscribe(
         (response: any) => {
-          Swal.fire('Successful', response.message, 'success');
+          Swal.fire('Succés', response.message, 'success');
           this.router.navigate(['formateur/quizzes']);
         },
         (error) => {
-          this.snackBar.open('Fail Operation !  !  !  !', 'Close', {
+          this.snackBar.open('Erreur !  !  !  !', 'Fermer', {
             duration: 3000,
           });
         }
       );
     } else {
-      this.snackBar.open('Set All The Fields Correctly !  !  !  !', 'Close', {
+      this.snackBar.open('Veuillez remplir tous les champs !  !  !  !', 'Fermer', {
         duration: 3000,
       });
     }
