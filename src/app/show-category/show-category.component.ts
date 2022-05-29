@@ -23,7 +23,7 @@ export class ShowCategoryComponent implements OnInit {
 
   public logout(){
     this.userAuthService.clear();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/']);
     
  
    }
